@@ -8,7 +8,7 @@
   &:not(:last-of-type) {
     border-bottom: 1px solid var(--light-border-color);
 
-    :global .dark-theme :local & {
+    :global(.dark-theme) & {
       border-color: var(--dark-border-color);
     }
   }
@@ -51,19 +51,12 @@
 .tag {
   display: inline-block;
   margin-right: 10px;
+  font-weight: 800;
   color: var(--light-color-secondary);
 
-  .dark-theme & {
+  :global(.dark-theme) & {
     color: var(--dark-color-secondary);
   }
-}
-
-.readMore {
-  display: inline-block;
-  text-decoration: none;
-  font-weight: bold;
-  margin: 20px 0;
-  font-size: 1rem;
 }
 
 .postContent {

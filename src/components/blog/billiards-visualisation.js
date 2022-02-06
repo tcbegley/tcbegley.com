@@ -109,7 +109,7 @@ class BilliardsVisualisation {
 
       const now = Date.now()
 
-      reds.forEach(r => {
+      reds.forEach((r) => {
         ctx.beginPath()
         ctx.arc(r.x, r.y, r.r, 0, 2 * Math.PI)
         ctx.fill()
@@ -134,7 +134,7 @@ class BilliardsVisualisation {
         requestAnimationFrame(tick)
       } else {
         props.setData({
-          reds: reds.map(r => r.x / props.width),
+          reds: reds.map((r) => r.x / props.width),
           white: white.x / props.width,
         })
       }

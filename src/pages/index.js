@@ -7,21 +7,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { config } from '@fortawesome/fontawesome-svg-core'
 
 import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { StaticImage } from 'gatsby-plugin-image'
 
-import SEO from '../components/seo'
+import Seo from '../components/seo'
 import Layout from '../components/layout'
 
-import style from '../styles/index.module.css'
+import * as style from './index.module.css'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
 config.autoAddCss = false
 
 const Index = ({ data }) => (
   <>
-    <SEO />
+    <Seo />
     <Layout>
       <div className={style.indexContainer}>
         <div className={style.indexRow}>
@@ -33,8 +31,8 @@ const Index = ({ data }) => (
             </p>
           </div>
           <div className={style.imgCol}>
-            <Img
-              fixed={data.file.childImageSharp.fixed}
+            <StaticImage
+              src="../images/me.jpg"
               alt="tom"
               style={{ borderRadius: 8, width: 200, height: 200 }}
             />
@@ -63,22 +61,5 @@ const Index = ({ data }) => (
     </Layout>
   </>
 )
-
-export const query = graphql`
-  query MyQuery {
-    file(relativePath: { eq: "tom-in-thailand-crop.jpg" }) {
-      childImageSharp {
-        id
-        fixed(width: 400) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`
-
-Index.propTypes = {
-  data: PropTypes.object.isRequired,
-}
 
 export default Index

@@ -13,7 +13,7 @@ npm install
 Build development bundle with hot reloading
 
 ```sh
-npm run dev
+npm start
 ```
 
 Build a production bundle

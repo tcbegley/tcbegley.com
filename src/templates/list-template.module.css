@@ -1,0 +1,16 @@
+.info-banner {
+  text-align: left;
+  margin: 20px 20px 40px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  width: calc(100% - 40px);
+  background: var(--light-background-secondary);
+
+  :global(.dark-theme) & {
+    background: var(--dark-background-secondary);
+  }
+
+  span {
+    font-weight: bold;
+  }
+}

@@ -69,7 +69,7 @@
   overflow: hidden;
   z-index: 99;
 
-  :global .dark-theme :local & {
+  :global(.dark-theme) & {
     background: #252627;
   }
 
@@ -133,7 +133,7 @@
   overflow: hidden;
   z-index: 99;
 
-  :global .dark-theme :local & {
+  :global(.dark-theme) & {
     background: var(--dark-background-secondary);
   }
 
@@ -151,7 +151,7 @@
       border-radius: 3px;
       cursor: pointer;
 
-      :global .dark-theme :local & {
+      :global(.dark-theme) & {
         background: rgba(0, 0, 0, 0.15);
       }
     }

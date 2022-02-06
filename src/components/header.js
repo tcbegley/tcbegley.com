@@ -1,28 +1,41 @@
 import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
-import Typist from 'react-typist'
 
 import Menu from './menu'
+import Typist from './typist'
 
-import style from '../styles/header.module.css'
+import * as style from './header.module.css'
 
-const Header = props => {
-  const {
-    siteLogo,
-    logoText,
-    mainMenu,
-    mainMenuItems,
-    menuMoreText,
-    defaultTheme,
-  } = props
+const Header = () => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+          logoText
+          defaultTheme
+          mainMenu {
+            title
+            path
+          }
+          showMenuItems
+          menuMoreText
+        }
+      }
+    }
+  `)
+  const { logoText, defaultTheme, mainMenu, showMenuItems, menuMoreText } =
+    data.site.siteMetadata
+
+  //   const { siteLogo, mainMenu, mainMenuItems, menuMoreText, defaultTheme } =
+  //     data.site.siteMetadata;
   const defaultThemeState =
     (typeof window !== 'undefined' && window.localStorage.getItem('theme')) ||
     null
+
   const [userTheme, changeTheme] = useState(defaultThemeState)
-  const [isMobileMenuVisible, toggleMobileMenu] = useState(false)
-  const [isSubMenuVisible, toggleSubMenu] = useState(false)
+
   const onChangeTheme = () => {
     const opositeTheme =
       (userTheme || defaultTheme) === 'light' ? 'dark' : 'light'
@@ -32,8 +45,6 @@ const Header = props => {
     typeof window !== 'undefined' &&
       window.localStorage.setItem('theme', opositeTheme)
   }
-  const onToggleMobileMenu = () => toggleMobileMenu(!isMobileMenuVisible)
-  const onToggleSubMenu = () => toggleSubMenu(!isSubMenuVisible)
 
   return (
     <>
@@ -50,28 +61,18 @@ const Header = props => {
         <div className={style.inner}>
           <Link to="/">
             <div className={style.logo}>
-              {siteLogo.src ? (
-                <img src={siteLogo.src} alt={siteLogo.alt} />
-              ) : (
-                <>
-                  <span className={style.mark}>></span>
-                  <Typist cursor={{ show: false }}>
-                    <span className={style.text}>{logoText}</span>
-                  </Typist>
-                  <span className={style.cursor} />
-                </>
-              )}
+              <>
+                <span className={style.mark}>&gt;</span>
+                <Typist className={style.text} text={logoText} />
+                <span className={style.cursor} />
+              </>
             </div>
           </Link>
           <span className={style.right}>
             <Menu
               mainMenu={mainMenu}
-              mainMenuItems={mainMenuItems}
-              isMobileMenuVisible={isMobileMenuVisible}
-              isSubMenuVisible={isSubMenuVisible}
+              showMenuItems={showMenuItems}
               menuMoreText={menuMoreText}
-              onToggleMobileMenu={onToggleMobileMenu}
-              onToggleSubMenu={onToggleSubMenu}
               onChangeTheme={onChangeTheme}
             />
           </span>
@@ -79,20 +80,6 @@ const Header = props => {
       </header>
     </>
   )
-}
-
-Header.propTypes = {
-  siteLogo: PropTypes.object,
-  logoText: PropTypes.string,
-  defaultTheme: PropTypes.string,
-  mainMenu: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      path: PropTypes.string,
-    }),
-  ),
-  mainMenuItems: PropTypes.number,
-  menuMoreText: PropTypes.string,
 }
 
 export default Header

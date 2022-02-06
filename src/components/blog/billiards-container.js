@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
+
 import BilliardsVisualisation from './billiards-visualisation'
-import styles from './billiards-container.module.css'
+import * as styles from './billiards-container.module.css'
 
 let vis
 
@@ -23,7 +24,7 @@ export default function BilliardsContainer() {
     let resizeTimer
     const handleResize = () => {
       clearTimeout(resizeTimer)
-      resizeTimer = setTimeout(function() {
+      resizeTimer = setTimeout(function () {
         let newWidth =
           (refElement.current && refElement.current.offsetWidth) || 400
         newWidth = Math.min(newWidth, 550)
@@ -39,12 +40,12 @@ export default function BilliardsContainer() {
   }
 
   useEffect(handleResizeEvent, [])
-  useEffect(initVis, [])
+  useEffect(initVis, [width, height])
   useEffect(() => {
     vis && vis.resize(width, height)
   }, [width, height])
 
-  const formatDataString = data => {
+  const formatDataString = (data) => {
     if (!data?.white) {
       return "Click 'Add white ball' to start"
     } else if (!data?.reds) {
@@ -53,7 +54,7 @@ export default function BilliardsContainer() {
       return `White ball location: ${data.white.toFixed(
         2,
       )}, Red balls to left: ${data.reds
-        .map(r => r < data.white)
+        .map((r) => r < data.white)
         .reduce((a, b) => a + b, 0)}`
     }
   }
