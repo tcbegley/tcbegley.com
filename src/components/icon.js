@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import { icon, labelClass, root } from "./icon.module.css";
+import { icon, labelClass, root } from './icon.module.css'
 
 const Icon = ({ d, size, label, style }) => (
   <span className={root} style={style} role="figure">
@@ -15,10 +15,10 @@ const Icon = ({ d, size, label, style }) => (
     </svg>
     {label && <span className={labelClass}>{label}</span>}
   </span>
-);
+)
 
 Icon.defaultProps = {
-  size: "1em",
-};
+  size: '1em',
+}
 
-export default Icon;
+export default Icon

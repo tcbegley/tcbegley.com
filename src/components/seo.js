@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Helmet from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import React from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import { useStaticQuery, graphql } from 'gatsby'
 
 const Seo = ({ description, lang, meta, keywords, title }) => {
   const data = useStaticQuery(graphql`
@@ -14,15 +14,15 @@ const Seo = ({ description, lang, meta, keywords, title }) => {
         }
       }
     }
-  `);
+  `)
   const {
     title: siteTitle,
     description: siteDescription,
     author,
-  } = data.site.siteMetadata;
+  } = data.site.siteMetadata
 
-  const metaTitle = title || siteTitle;
-  const metaDescription = description || siteDescription;
+  const metaTitle = title || siteTitle
+  const metaDescription = description || siteDescription
 
   return (
     <Helmet
@@ -71,18 +71,18 @@ const Seo = ({ description, lang, meta, keywords, title }) => {
                 name: `keywords`,
                 content: keywords.join(`, `),
               }
-            : []
+            : [],
         )
         .concat(meta)}
     />
-  );
-};
+  )
+}
 
 Seo.defaultProps = {
   lang: `en`,
   meta: [],
-  keywords: ["tom begley", "data science", "statistics", "python"],
-};
+  keywords: ['tom begley', 'data science', 'statistics', 'python'],
+}
 
 Seo.propTypes = {
   description: PropTypes.string,
@@ -90,6 +90,6 @@ Seo.propTypes = {
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string,
-};
+}
 
-export default Seo;
+export default Seo

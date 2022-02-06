@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
-import Seo from "./seo";
-import Layout from "./layout";
+import Seo from './seo'
+import Layout from './layout'
 
 const PageLayout = ({
   children,
@@ -27,6 +27,6 @@ const PageLayout = ({
   //     tags={tags}
   //   />
   // </Layout>
-);
+)
 
-export default PageLayout;
+export default PageLayout

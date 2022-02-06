@@ -2,20 +2,20 @@ import {
   faGithub,
   faLinkedin,
   faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { config } from "@fortawesome/fontawesome-svg-core";
+} from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { config } from '@fortawesome/fontawesome-svg-core'
 
-import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import React from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
 
-import Seo from "../components/seo";
-import Layout from "../components/layout";
+import Seo from '../components/seo'
+import Layout from '../components/layout'
 
-import * as style from "./index.module.css";
-import "@fortawesome/fontawesome-svg-core/styles.css";
+import * as style from './index.module.css'
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
-config.autoAddCss = false;
+config.autoAddCss = false
 
 const Index = ({ data }) => (
   <>
@@ -26,7 +26,7 @@ const Index = ({ data }) => (
           <div className={style.textCol}>
             <h1 className={style.heading}>Hello, I'm Tom.</h1>
             <p className={style.summary}>
-              I am a data scientist and mathematician. I'm currently R&D Lead at{" "}
+              I am a data scientist and mathematician. I'm currently R&D Lead at{' '}
               <a href="https://faculty.ai">Faculty</a>
             </p>
           </div>
@@ -60,6 +60,6 @@ const Index = ({ data }) => (
       </div>
     </Layout>
   </>
-);
+)
 
-export default Index;
+export default Index

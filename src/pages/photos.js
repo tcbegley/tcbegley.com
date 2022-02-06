@@ -1,9 +1,9 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Gallery from "react-grid-gallery";
+import React from 'react'
+import { graphql } from 'gatsby'
+import Gallery from 'react-grid-gallery'
 
-import Layout from "../components/layout";
-import Seo from "../components/seo";
+import Layout from '../components/layout'
+import Seo from '../components/seo'
 
 const Photos = ({ data }) => {
   const images = data.allFlickrPhoto.nodes.map((node) => ({
@@ -12,10 +12,10 @@ const Photos = ({ data }) => {
     thumbnailWidth: node.width_s,
     thumbnailHeight: node.height_s,
     caption: node.description,
-  }));
+  }))
   return (
     <>
-      <Seo title={"Photos"} />
+      <Seo title={'Photos'} />
       <Layout title="Photos">
         <p>
           I'm a keen amateur photographer. On this page you can find a few of
@@ -23,7 +23,7 @@ const Photos = ({ data }) => {
           higher resolution version.
         </p>
         <p>
-          All of these photos are also available on my{" "}
+          All of these photos are also available on my{' '}
           <a href="https://flickr.com/photos/149210668@N06/">Flickr</a> account.
         </p>
         <Gallery
@@ -33,8 +33,8 @@ const Photos = ({ data }) => {
         />
       </Layout>
     </>
-  );
-};
+  )
+}
 
 export const query = graphql`
   query {
@@ -49,6 +49,6 @@ export const query = graphql`
       }
     }
   }
-`;
+`
 
-export default Photos;
+export default Photos

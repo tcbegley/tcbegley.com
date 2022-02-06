@@ -1,12 +1,12 @@
 ---
-title: "Election Modelling - Part 1"
-path: "/blog/election-modelling-part-1"
-date: "2019-11-04 08:00:00"
-author: "Tom"
+title: 'Election Modelling - Part 1'
+path: '/blog/election-modelling-part-1'
+date: '2019-11-04 08:00:00'
+author: 'Tom'
 excerpt:
   "It's happening! I actually wrote a blog post. But also the UK is having a
   general election in December..."
-tags: ["bayesian statistics", "politics"]
+tags: ['bayesian statistics', 'politics']
 ---
 
 It's happening! I actually wrote a blog post. But also the UK is having a

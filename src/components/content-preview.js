@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "gatsby";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 
-import { toKebabCase } from "../helpers";
+import { toKebabCase } from '../helpers'
 
-import * as style from "./content.module.css";
-import { readMore } from "./content-preview.module.css";
+import * as style from './content.module.css'
+import { readMore } from './content-preview.module.css'
 
 const ContentPreview = ({ title, author, date, path, tags, excerpt }) => (
   <div className={style.post}>
@@ -32,7 +32,7 @@ const ContentPreview = ({ title, author, date, path, tags, excerpt }) => (
       </Link>
     </div>
   </div>
-);
+)
 
 ContentPreview.propTypes = {
   title: PropTypes.string,
@@ -41,14 +41,14 @@ ContentPreview.propTypes = {
   author: PropTypes.string,
   excerpt: PropTypes.string,
   tags: PropTypes.arrayOf(PropTypes.string),
-};
+}
 
 ContentPreview.defaultProps = {
-  title: "",
+  title: '',
   author: null,
   date: null,
   tags: [],
   excerpt: null,
-};
+}
 
-export default ContentPreview;
+export default ContentPreview

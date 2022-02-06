@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { graphql } from "gatsby";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
 
-import ContentPreview from "../components/content-preview";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
-import Navigation from "../components/navigation";
+import ContentPreview from '../components/content-preview'
+import Layout from '../components/layout'
+import Seo from '../components/seo'
+import Navigation from '../components/navigation'
 
-import { infoBanner } from "./list-template.module.css";
+import { infoBanner } from './list-template.module.css'
 
 const Index = ({
   data,
@@ -15,7 +15,7 @@ const Index = ({
 }) => {
   const {
     allMdx: { edges: posts },
-  } = data;
+  } = data
 
   const previews = posts.map(({ node }) => {
     const {
@@ -23,7 +23,7 @@ const Index = ({
       excerpt: autoExcerpt,
       frontmatter: { title, date, author, excerpt, tags },
       slug,
-    } = node;
+    } = node
 
     return (
       <ContentPreview
@@ -35,8 +35,8 @@ const Index = ({
         tags={tags}
         excerpt={excerpt || autoExcerpt}
       />
-    );
-  });
+    )
+  })
 
   return (
     <>
@@ -54,8 +54,8 @@ const Index = ({
         />
       </Layout>
     </>
-  );
-};
+  )
+}
 
 Index.propTypes = {
   data: PropTypes.object.isRequired,
@@ -63,7 +63,7 @@ Index.propTypes = {
     nextPagePath: PropTypes.string,
     previousPagePath: PropTypes.string,
   }),
-};
+}
 
 export const tagsQuery = graphql`
   query ($limit: Int!, $skip: Int!, $tag: String!) {
@@ -92,6 +92,6 @@ export const tagsQuery = graphql`
       }
     }
   }
-`;
+`
 
-export default Index;
+export default Index

@@ -1,46 +1,46 @@
-import * as d3 from "d3";
+import * as d3 from 'd3'
 
 class BilliardsVisualisation {
-  props;
-  canvas;
-  ctx;
-  time;
+  props
+  canvas
+  ctx
+  time
 
   constructor(containerEl, props) {
-    this.props = props;
+    this.props = props
     this.canvas = d3
       .select(containerEl)
-      .append("canvas")
-      .style("background-color", "#0fc133")
-      .style("border", "2px solid black")
-      .style("border-radius", "5px")
-      .attr("width", props.width)
-      .attr("height", props.height);
-    this.ctx = this.canvas.node().getContext("2d");
-    this.white = null;
+      .append('canvas')
+      .style('background-color', '#0fc133')
+      .style('border', '2px solid black')
+      .style('border-radius', '5px')
+      .attr('width', props.width)
+      .attr('height', props.height)
+    this.ctx = this.canvas.node().getContext('2d')
+    this.white = null
 
-    this.setWhite = this.setWhite.bind(this);
-    this.drawWhiteLine = this.drawWhiteLine.bind(this);
+    this.setWhite = this.setWhite.bind(this)
+    this.drawWhiteLine = this.drawWhiteLine.bind(this)
   }
 
   drawWhiteLine() {
-    const { ctx, props, white } = this;
+    const { ctx, props, white } = this
     if (white !== null) {
-      ctx.beginPath();
-      ctx.moveTo(white.x, 0);
-      ctx.lineTo(white.x, props.height);
-      ctx.strokeStyle = "white";
-      ctx.stroke();
+      ctx.beginPath()
+      ctx.moveTo(white.x, 0)
+      ctx.lineTo(white.x, props.height)
+      ctx.strokeStyle = 'white'
+      ctx.stroke()
     }
   }
 
   setWhite(state) {
-    this.white = state;
+    this.white = state
   }
 
   addWhiteBall() {
-    const { ctx, props, setWhite, drawWhiteLine } = this;
-    setWhite(null);
+    const { ctx, props, setWhite, drawWhiteLine } = this
+    setWhite(null)
 
     let white = {
       x: 10 + Math.random() * (this.props.width - 20),
@@ -48,46 +48,46 @@ class BilliardsVisualisation {
       r: 10,
       vx: Math.random() * 5 + 5,
       vy: Math.random() * 5 + 5,
-    };
+    }
 
-    requestAnimationFrame(tick);
-    const endTime = Date.now() + 4000;
+    requestAnimationFrame(tick)
+    const endTime = Date.now() + 4000
     function tick() {
-      ctx.clearRect(0, 0, props.width, props.height);
-      ctx.fillStyle = "white";
-      ctx.beginPath();
-      ctx.arc(white.x, white.y, white.r, 0, 2 * Math.PI);
-      ctx.fill();
+      ctx.clearRect(0, 0, props.width, props.height)
+      ctx.fillStyle = 'white'
+      ctx.beginPath()
+      ctx.arc(white.x, white.y, white.r, 0, 2 * Math.PI)
+      ctx.fill()
 
       if (
         (white.x - white.r <= 0 && white.vx < 0) ||
         (white.x + white.r >= props.width && white.vx > 0)
       ) {
-        white.vx = -white.vx;
+        white.vx = -white.vx
       }
       if (
         (white.y - white.r <= 0 && white.vy < 0) ||
         (white.y + white.r >= props.height && white.vy > 0)
       ) {
-        white.vy = -white.vy;
+        white.vy = -white.vy
       }
 
-      const now = Date.now();
-      white.x = white.x + (white.vx * (endTime - now)) / 4000;
-      white.y = white.y + (white.vy * (endTime - now)) / 4000;
+      const now = Date.now()
+      white.x = white.x + (white.vx * (endTime - now)) / 4000
+      white.y = white.y + (white.vy * (endTime - now)) / 4000
       if (now < endTime) {
-        requestAnimationFrame(tick);
+        requestAnimationFrame(tick)
       } else {
-        ctx.clearRect(0, 0, props.width, props.height);
-        setWhite({ x: white.x });
-        drawWhiteLine();
-        props.setData({ white: white.x / props.width });
+        ctx.clearRect(0, 0, props.width, props.height)
+        setWhite({ x: white.x })
+        drawWhiteLine()
+        props.setData({ white: white.x / props.width })
       }
     }
   }
 
   addRedBalls() {
-    let reds = [];
+    let reds = []
 
     for (let i = 0; i < 5; i++) {
       reds.push({
@@ -96,54 +96,54 @@ class BilliardsVisualisation {
         r: 10,
         vx: Math.random() * 5 + 5,
         vy: Math.random() * 5 + 5,
-      });
+      })
     }
 
-    requestAnimationFrame(tick);
-    const { ctx, props, white, drawWhiteLine } = this;
-    const endTime = Date.now() + 4000;
+    requestAnimationFrame(tick)
+    const { ctx, props, white, drawWhiteLine } = this
+    const endTime = Date.now() + 4000
     function tick() {
-      ctx.clearRect(0, 0, props.width, props.height);
-      drawWhiteLine();
-      ctx.fillStyle = "#ff2c28";
+      ctx.clearRect(0, 0, props.width, props.height)
+      drawWhiteLine()
+      ctx.fillStyle = '#ff2c28'
 
-      const now = Date.now();
+      const now = Date.now()
 
       reds.forEach((r) => {
-        ctx.beginPath();
-        ctx.arc(r.x, r.y, r.r, 0, 2 * Math.PI);
-        ctx.fill();
+        ctx.beginPath()
+        ctx.arc(r.x, r.y, r.r, 0, 2 * Math.PI)
+        ctx.fill()
 
         if (
           (r.x - r.r <= 0 && r.vx < 0) ||
           (r.x + r.r >= props.width && r.vx > 0)
         ) {
-          r.vx = -r.vx;
+          r.vx = -r.vx
         }
         if (
           (r.y - r.r <= 0 && r.vy < 0) ||
           (r.y + r.r >= props.height && r.vy > 0)
         ) {
-          r.vy = -r.vy;
+          r.vy = -r.vy
         }
-        r.x = r.x + (r.vx * (endTime - now)) / 4000;
-        r.y = r.y + (r.vy * (endTime - now)) / 4000;
-      });
+        r.x = r.x + (r.vx * (endTime - now)) / 4000
+        r.y = r.y + (r.vy * (endTime - now)) / 4000
+      })
 
       if (now < endTime) {
-        requestAnimationFrame(tick);
+        requestAnimationFrame(tick)
       } else {
         props.setData({
           reds: reds.map((r) => r.x / props.width),
           white: white.x / props.width,
-        });
+        })
       }
     }
   }
 
   resize = (width, height) => {
-    this.canvas.attr("width", width).attr("height", height);
-  };
+    this.canvas.attr('width', width).attr('height', height)
+  }
 }
 
-export default BilliardsVisualisation;
+export default BilliardsVisualisation

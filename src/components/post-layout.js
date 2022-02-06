@@ -1,14 +1,14 @@
-import React from "react";
-import { graphql } from "gatsby";
-import { MDXProvider } from "@mdx-js/react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Link } from "gatsby";
+import React from 'react'
+import { graphql } from 'gatsby'
+import { MDXProvider } from '@mdx-js/react'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { Link } from 'gatsby'
 
-import Layout from "./layout";
-import Navigation from "./navigation";
-import Seo from "./seo";
+import Layout from './layout'
+import Navigation from './navigation'
+import Seo from './seo'
 
-const shortcodes = { Link }; // Provide common components here
+const shortcodes = { Link } // Provide common components here
 const PostLayout = ({
   data: {
     mdx: { frontmatter, body },
@@ -38,7 +38,7 @@ const PostLayout = ({
       />
     </Layout>
   </>
-);
+)
 
 export const query = graphql`
   query ($id: String!) {
@@ -54,6 +54,6 @@ export const query = graphql`
       body
     }
   }
-`;
+`
 
-export default PostLayout;
+export default PostLayout

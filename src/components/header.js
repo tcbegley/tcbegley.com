@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { Link, graphql, useStaticQuery } from "gatsby";
-import { Helmet } from "react-helmet";
+import React, { useState } from 'react'
+import { Link, graphql, useStaticQuery } from 'gatsby'
+import { Helmet } from 'react-helmet'
 
-import Menu from "./menu";
-import Typist from "./typist";
+import Menu from './menu'
+import Typist from './typist'
 
-import * as style from "./header.module.css";
+import * as style from './header.module.css'
 
 const Header = () => {
   const data = useStaticQuery(graphql`
@@ -24,36 +24,36 @@ const Header = () => {
         }
       }
     }
-  `);
+  `)
   const { logoText, defaultTheme, mainMenu, showMenuItems, menuMoreText } =
-    data.site.siteMetadata;
+    data.site.siteMetadata
 
   //   const { siteLogo, mainMenu, mainMenuItems, menuMoreText, defaultTheme } =
   //     data.site.siteMetadata;
   const defaultThemeState =
-    (typeof window !== "undefined" && window.localStorage.getItem("theme")) ||
-    null;
+    (typeof window !== 'undefined' && window.localStorage.getItem('theme')) ||
+    null
 
-  const [userTheme, changeTheme] = useState(defaultThemeState);
+  const [userTheme, changeTheme] = useState(defaultThemeState)
 
   const onChangeTheme = () => {
     const opositeTheme =
-      (userTheme || defaultTheme) === "light" ? "dark" : "light";
+      (userTheme || defaultTheme) === 'light' ? 'dark' : 'light'
 
-    changeTheme(opositeTheme);
+    changeTheme(opositeTheme)
 
-    typeof window !== "undefined" &&
-      window.localStorage.setItem("theme", opositeTheme);
-  };
+    typeof window !== 'undefined' &&
+      window.localStorage.setItem('theme', opositeTheme)
+  }
 
   return (
     <>
       <Helmet>
         <body
           className={
-            (userTheme || defaultTheme) === "light"
-              ? "light-theme"
-              : "dark-theme"
+            (userTheme || defaultTheme) === 'light'
+              ? 'light-theme'
+              : 'dark-theme'
           }
         />
       </Helmet>
@@ -79,7 +79,7 @@ const Header = () => {
         </div>
       </header>
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

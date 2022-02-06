@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link } from "gatsby";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link } from 'gatsby'
 
-import { toKebabCase } from "../helpers";
+import { toKebabCase } from '../helpers'
 
-import * as style from "./content.module.css";
+import * as style from './content.module.css'
 
 const Content = ({ children, title, author, date, tags }) => {
   return (
@@ -28,8 +28,8 @@ const Content = ({ children, title, author, date, tags }) => {
         {children}
       </div>
     </div>
-  );
-};
+  )
+}
 
 Content.propTypes = {
   title: PropTypes.string,
@@ -37,13 +37,13 @@ Content.propTypes = {
   author: PropTypes.string,
   children: PropTypes.any,
   tags: PropTypes.arrayOf(PropTypes.string),
-};
+}
 
 Content.defaultProps = {
-  title: "",
+  title: '',
   author: null,
   date: null,
   tags: [],
-};
+}
 
-export default Content;
+export default Content

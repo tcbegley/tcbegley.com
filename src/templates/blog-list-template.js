@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { graphql } from "gatsby";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
 
-import ContentPreview from "../components/content-preview";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
-import Navigation from "../components/navigation";
+import ContentPreview from '../components/content-preview'
+import Layout from '../components/layout'
+import Seo from '../components/seo'
+import Navigation from '../components/navigation'
 
 const BlogList = ({
   data,
@@ -13,7 +13,7 @@ const BlogList = ({
 }) => {
   const {
     allMdx: { edges: posts },
-  } = data;
+  } = data
 
   const previews = posts.map(({ node }) => {
     const {
@@ -21,7 +21,7 @@ const BlogList = ({
       excerpt: autoExcerpt,
       frontmatter: { title, date, author, excerpt, tags },
       slug,
-    } = node;
+    } = node
 
     return (
       <ContentPreview
@@ -33,8 +33,8 @@ const BlogList = ({
         tags={tags}
         excerpt={excerpt || autoExcerpt}
       />
-    );
-  });
+    )
+  })
 
   return (
     <>
@@ -49,8 +49,8 @@ const BlogList = ({
         />
       </Layout>
     </>
-  );
-};
+  )
+}
 
 BlogList.propTypes = {
   data: PropTypes.object.isRequired,
@@ -58,7 +58,7 @@ BlogList.propTypes = {
     nextPagePath: PropTypes.string,
     previousPagePath: PropTypes.string,
   }),
-};
+}
 
 export const postsQuery = graphql`
   query ($limit: Int!, $skip: Int!) {
@@ -84,6 +84,6 @@ export const postsQuery = graphql`
       }
     }
   }
-`;
+`
 
-export default BlogList;
+export default BlogList
