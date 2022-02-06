@@ -1,0 +1,40 @@
+.canvasContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.button {
+  position: relative;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  background: #eaeaea;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  max-width: 40%;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 8px 16px;
+  border: none;
+  margin: 0 1em;
+}
+
+.button:disabled {
+  cursor: default;
+}
+
+.data {
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  text-align: center;
+}

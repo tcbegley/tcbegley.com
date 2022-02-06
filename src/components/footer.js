@@ -1,27 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
 
-const Footer = ({ copyrights }) => (
+import { footer } from "./footer.module.css";
+
+const Footer = () => (
   <footer>
-    {copyrights ? (
-      <div
-        dangerouslySetInnerHTML={{
-          __html: copyrights,
-        }}
-      />
-    ) : (
-      <>
-        <span className="footerCopyrights">
-          © Tom Begley 2021 | Built with{' '}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </span>
-      </>
-    )}
+    <span className={footer}>
+      © Tom Begley 2022 | Built with{" "}
+      <a href="https://www.gatsbyjs.org">Gatsby</a>
+    </span>
   </footer>
-)
+);
 
-Footer.propTypes = {
-  copyrights: PropTypes.string,
-}
-
-export default Footer
+export default Footer;
