@@ -2,7 +2,6 @@
 title: 'Maths'
 date: '2020-01-03'
 author: 'Tom'
-path: '/maths'
 ---
 
 This page documents some of the work I did during my PhD. I studied problems in

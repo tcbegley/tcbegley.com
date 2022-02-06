@@ -2,7 +2,6 @@
 title: 'Code'
 date: '2020-01-03'
 author: 'Tom'
-path: '/code'
 ---
 
 I enjoy programming in my spare time. Most things I work on are available on

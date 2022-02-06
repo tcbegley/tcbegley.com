@@ -2,7 +2,6 @@
 title: 'About'
 date: '2020-01-03'
 author: 'Tom'
-path: '/about'
 ---
 
 I am currently R&D lead at [Faculty][faculty]. At the moment our R&D team is

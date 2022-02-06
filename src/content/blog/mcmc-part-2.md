@@ -13,7 +13,7 @@ tags: ['algorithms', 'bayesian statistics']
 This post is about Hamiltonian Monte Carlo, an MCMC algorithm that builds on the
 Metropolis algorithm, but uses information about the geometry of the posterior
 to make better proposals. If you are unfamiliar with the Metropolis algorithm,
-check out the [previous post in this series](/blog/mcmc-1). We'll start by
+check out the [previous post in this series](/blog/mcmc-part-1). We'll start by
 understanding how the algorithm works, what problems it solves, then finish up
 with a simple implementation.
 
