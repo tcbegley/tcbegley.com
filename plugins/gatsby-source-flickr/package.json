@@ -1,0 +1,7 @@
+{
+  "name": "gatsby-source-flickr",
+  "description": "A Gatsby source plugin to load resources from the Flickr photo search API. Updated for Gatsby 4.",
+  "author": "Tom Begley <tomcbegley@gmail.com>",
+  "license": "MIT",
+  "version": "0.1.0"
+}

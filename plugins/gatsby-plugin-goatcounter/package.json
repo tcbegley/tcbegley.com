@@ -1,0 +1,7 @@
+{
+  "name": "gatsby-plugin-goatcounter",
+  "description": "A Gatsby plugin to track visits with Goat Counter. Updated for Gatsby 4.",
+  "author": "Tom Begley <tomcbegley@gmail.com>",
+  "license": "MIT",
+  "version": "0.1.0"
+}
