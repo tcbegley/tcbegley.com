@@ -10,8 +10,8 @@ const Content = ({ children, title, author, date, tags }) => {
   return (
     <div className={style.post}>
       <div className={style.postContent}>
-        <h1 className={style.title}>{title}</h1>
-        {(date || author || tags) && (
+        {title ? <h1 className={style.title}>{title}</h1> : null}
+        {date || author || tags.length ? (
           <div className={style.meta}>
             {date} {author && <>— Written by {author}</>}
             {tags ? (
@@ -24,7 +24,7 @@ const Content = ({ children, title, author, date, tags }) => {
               </div>
             ) : null}
           </div>
-        )}
+        ) : null}
         {children}
       </div>
     </div>
