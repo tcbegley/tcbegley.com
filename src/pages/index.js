@@ -2,39 +2,37 @@ import {
   faGithub,
   faLinkedin,
   faTwitter,
-} from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { config } from '@fortawesome/fontawesome-svg-core'
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { config } from "@fortawesome/fontawesome-svg-core";
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import React from "react";
+import { StaticImage } from "gatsby-plugin-image";
 
-import SEO from '../components/seo'
-import Layout from '../components/layout'
+import Seo from "../components/seo";
+import Layout from "../components/layout";
 
-import style from '../styles/index.module.css'
-import '@fortawesome/fontawesome-svg-core/styles.css'
+import * as style from "./index.module.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
-config.autoAddCss = false
+config.autoAddCss = false;
 
 const Index = ({ data }) => (
   <>
-    <SEO />
+    <Seo />
     <Layout>
       <div className={style.indexContainer}>
         <div className={style.indexRow}>
           <div className={style.textCol}>
             <h1 className={style.heading}>Hello, I'm Tom.</h1>
             <p className={style.summary}>
-              I am a data scientist and mathematician. I'm currently R&D Lead at{' '}
+              I am a data scientist and mathematician. I'm currently R&D Lead at{" "}
               <a href="https://faculty.ai">Faculty</a>
             </p>
           </div>
           <div className={style.imgCol}>
-            <Img
-              fixed={data.file.childImageSharp.fixed}
+            <StaticImage
+              src="../images/me.jpg"
               alt="tom"
               style={{ borderRadius: 8, width: 200, height: 200 }}
             />
@@ -62,23 +60,6 @@ const Index = ({ data }) => (
       </div>
     </Layout>
   </>
-)
+);
 
-export const query = graphql`
-  query MyQuery {
-    file(relativePath: { eq: "tom-in-thailand-crop.jpg" }) {
-      childImageSharp {
-        id
-        fixed(width: 400) {
-          ...GatsbyImageSharpFixed
-        }
-      }
-    }
-  }
-`
-
-Index.propTypes = {
-  data: PropTypes.object.isRequired,
-}
-
-export default Index
+export default Index;
