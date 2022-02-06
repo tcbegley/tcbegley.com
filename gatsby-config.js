@@ -1,22 +1,14 @@
 require('dotenv').config()
 
-const postCssPresetEnv = require(`postcss-preset-env`)
-const postCSSNested = require('postcss-nested')
-const postCSSUrl = require('postcss-url')
-const postCSSImports = require('postcss-import')
-const cssnano = require('cssnano')
-const postCSSMixins = require('postcss-mixins')
+const postCSSPresetEnv = require('postcss-preset-env')
+const esmRequire = require('./src/helpers/esmRequire')
 
 module.exports = {
   siteMetadata: {
     title: `Tom Begley`,
     description: `Personal website of Tom Begley`,
-    copyrights: '',
+    siteUrl: 'https://tcbegley.com',
     author: `@tcbegley`,
-    logo: {
-      src: '',
-      alt: '',
-    },
     logoText: 'tcbegley',
     defaultTheme: 'dark',
     postsPerPage: 5,
@@ -46,29 +38,6 @@ module.exports = {
     ],
   },
   plugins: [
-    `babel-preset-gatsby`,
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `posts`,
-        path: `${__dirname}/src/content/posts`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/content/pages`,
-      },
-    },
     {
       resolve: 'gatsby-source-flickr',
       options: {
@@ -79,45 +48,73 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-goatcounter`,
-      options: {
-        // REQUIRED! https://[my_code].goatcounter.com
-        code: 'tcbegley',
-      },
-    },
-    {
-      resolve: `gatsby-plugin-postcss`,
+      resolve: 'gatsby-plugin-postcss',
       options: {
         postCssPlugins: [
-          postCSSUrl(),
-          postCSSImports(),
-          postCSSMixins(),
-          postCSSNested(),
-          postCssPresetEnv({
+          require('postcss-url'),
+          require('postcss-import'),
+          require('postcss-nested'),
+          require('postcss-custom-media'),
+          postCSSPresetEnv({
             importFrom: 'src/styles/variables.css',
             stage: 1,
-            preserve: false,
           }),
-          cssnano({
-            preset: 'default',
-          }),
+          // require("cssnano"),
         ],
       },
     },
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-remark-images',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-offline',
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: 'src/images/icon.png',
+      },
+    },
+    'gatsby-transformer-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images/`,
+      },
+      __key: 'images',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: `${__dirname}/src/content/pages`,
+      },
+      __key: 'pages',
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'posts',
+        path: `${__dirname}/src/content`,
+        ignore: ['pages'],
+      },
+      __key: 'posts',
+    },
+    {
+      resolve: 'gatsby-plugin-page-creator',
+      options: {
+        path: `${__dirname}/src/content/pages`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: [`.mdx`, `.md`],
+        defaultLayouts: {
+          pages: require.resolve(`${__dirname}/src/components/page-layout.js`),
+        },
         gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-remark-embed-video',
-            options: {
-              related: false,
-              noIframeBorder: true,
-            },
-          },
           {
             resolve: `gatsby-remark-images`,
             options: {
@@ -125,6 +122,13 @@ module.exports = {
               quality: 100,
               wrapperStyle:
                 'border:8px solid white;border-radius:8px;background:white;box-sizing:content-box;',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-embed-video',
+            options: {
+              related: false,
+              noIframeBorder: true,
             },
           },
           {
@@ -145,18 +149,14 @@ module.exports = {
             },
           },
         ],
+        remarkPlugins: [esmRequire('remark-math')],
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: `gatsby-plugin-goatcounter`,
       options: {
-        name: `tcbegley.com`,
-        short_name: `tcbegley.com`,
-        start_url: `/`,
-        background_color: `#292a2d`,
-        theme_color: `#292a2d`,
-        display: `minimal-ui`,
-        icon: `src/images/hello-icon.png`,
+        // REQUIRED! https://[my_code].goatcounter.com
+        code: 'tcbegley',
       },
     },
   ],
