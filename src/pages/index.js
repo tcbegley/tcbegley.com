@@ -17,7 +17,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 
 config.autoAddCss = false
 
-const Index = ({ data }) => (
+const Index = () => (
   <>
     <Seo />
     <Layout>
@@ -26,8 +26,9 @@ const Index = ({ data }) => (
           <div className={style.textCol}>
             <h1 className={style.heading}>Hello, I'm Tom.</h1>
             <p className={style.summary}>
-              I am a data scientist and mathematician. I'm currently R&D Lead at{' '}
-              <a href="https://faculty.ai">Faculty</a>
+              I am a software engineer, data scientist, and mathematician. I'm
+              currently a Machine Learning engineer at{' '}
+              <a href="https://about.facebook.com/">Meta</a>.
             </p>
           </div>
           <div className={style.imgCol}>
