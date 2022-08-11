@@ -4,11 +4,10 @@ date: '2020-01-03'
 author: 'Tom'
 ---
 
-I am currently R&D lead at [Faculty][faculty]. At the moment our R&D team is
-particularly interested in AI safety. I originally joined Faculty as a data
-scientist. We work with a number of clients across many different industries on
-machine learning and data science problems. A couple of projects I've worked on
-include:
+I am currently a Machine Learning Engineer at [Meta][meta].
+
+Previously I was R&D lead at [Faculty][faculty]. A couple of projects I worked
+on in my time there include:
 
 - A tool for detecting terrorist propaganda online using machine learning
   algorithms, built for the UK Home Office. Read about it
@@ -24,6 +23,7 @@ on on my [maths page](/maths).
 I like coding in my spare time and contributing to open source projects. You can
 see some of the things I work on on my [code page](/code).
 
+[meta]: https://about.facebook.com/
 [faculty]: https://faculty.ai
 [blackflag-article]: https://www.bbc.co.uk/news/technology-43037899
 
