@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-const Typist = ({ className, text, delay }) => {
+export default function Typist({ className, text, delay }) {
   const index = useRef(0)
   const [typed, setTyped] = useState('')
 
@@ -21,5 +21,3 @@ const Typist = ({ className, text, delay }) => {
 Typist.defaultProps = {
   delay: 70,
 }
-
-export default Typist

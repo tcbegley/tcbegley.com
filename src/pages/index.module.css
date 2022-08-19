@@ -86,9 +86,7 @@
   margin-top: 0;
 }
 
-.social {
-  a {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+.social > a {
+  margin-left: 10px;
+  margin-right: 10px;
 }

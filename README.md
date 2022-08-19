@@ -1,6 +1,6 @@
 # tcbegley.com
 
-This is the source code for my personal website. It is built with [Gatsby][gatsby] and based on the [Hello Friend][hello-friend] starter.
+This is the source code for my personal website. It is built with [NextJS][next-js]. A previous version was built with Gatsby and based on the [Hello Friend][hello-friend] starter.
 
 ## Development
 
@@ -13,7 +13,7 @@ npm install
 Build development bundle with hot reloading
 
 ```sh
-npm start
+npm run dev
 ```
 
 Build a production bundle
@@ -25,14 +25,11 @@ npm run build
 Serve the production bundle
 
 ```sh
-npm run serve
+npm start
 ```
 
-Updates are automatically published when new commits are pushed to `main`. Manually publish to GitHub pages with
-
-```sh
-npm run deploy
-```
+Updates are automatically published when new commits are pushed to `main`.
 
 [gatsby]: https://gatsbyjs.org
+[next-js]: https://nextjs.org/
 [hello-friend]: https://github.com/panr/gatsby-starter-hello-friend

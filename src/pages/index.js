@@ -1,3 +1,6 @@
+import Head from 'next/head'
+import Image from 'next/image'
+
 import {
   faGithub,
   faLinkedin,
@@ -6,40 +9,46 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { config } from '@fortawesome/fontawesome-svg-core'
 
-import React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
+// import Layout from '../components/layout'
+import siteConfig from '../config'
+import Footer from '../components/footer'
 
-import Seo from '../components/seo'
-import Layout from '../components/layout'
-
-import * as style from './index.module.css'
+import styles from './index.module.css'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 
 config.autoAddCss = false
 
-const Index = () => (
-  <>
-    <Seo />
-    <Layout>
-      <div className={style.indexContainer}>
-        <div className={style.indexRow}>
-          <div className={style.textCol}>
-            <h1 className={style.heading}>Hello, I'm Tom.</h1>
-            <p className={style.summary}>
+export default function Index() {
+  return (
+    <>
+      <Head>
+        <title>{siteConfig.title}</title>
+        <meta name="description" content={siteConfig.description} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      {/* // <Seo /> */}
+      {/* <Layout> */}
+      <div className={styles.indexContainer}>
+        <div className={styles.indexRow}>
+          <div className={styles.textCol}>
+            <h1 className={styles.heading}>Hello, I'm Tom.</h1>
+            <p className={styles.summary}>
               I am a software engineer, data scientist, and mathematician. I'm
               currently a Machine Learning engineer at{' '}
               <a href="https://about.facebook.com/">Meta</a>.
             </p>
           </div>
-          <div className={style.imgCol}>
-            <StaticImage
-              src="../images/me.jpg"
+          <div className={styles.imgCol}>
+            <Image
+              src="/images/me.jpg"
               alt="tom"
-              style={{ borderRadius: 8, width: 200, height: 200 }}
+              width={200}
+              height={200}
+              style={{ borderRadius: 8 }}
             />
           </div>
         </div>
-        <p className={style.text}>
+        <p className={styles.text}>
           You've found my website. It has some information about me, and things
           I've worked on both professionally and in my spare time. I've also
           aspirationally set up a blog that I occasionally get around to writing
@@ -47,7 +56,7 @@ const Index = () => (
           to Bayesian inference, machine learning, web development, and
           programming with Python.
         </p>
-        <span className={style.social}>
+        <span className={styles.social}>
           <a href="https://github.com/tcbegley">
             <FontAwesomeIcon icon={faGithub} size="2x" />
           </a>
@@ -59,8 +68,8 @@ const Index = () => (
           </a>
         </span>
       </div>
-    </Layout>
-  </>
-)
-
-export default Index
+      <Footer />
+      {/* </Layout> */}
+    </>
+  )
+}
