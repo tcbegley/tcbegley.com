@@ -1,5 +1,5 @@
 import 'katex/dist/katex.min.css'
-import '../styles/global.css'
+import '../styles/globals.css'
 import '../styles/prism.css'
 
 function MyApp({ Component, pageProps }) {

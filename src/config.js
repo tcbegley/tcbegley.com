@@ -1,4 +1,4 @@
-export default {
+const config = {
   title: `Tom Begley`,
   description: `Personal website of Tom Begley`,
   siteUrl: 'https://tcbegley.com',
@@ -31,3 +31,5 @@ export default {
     },
   ],
 }
+
+export default config

@@ -12,6 +12,7 @@ body[data-theme='light'] {
   --color-text-secondary: #008000;
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #eaeaea;
+  --color-bg-nav: #fafafa;
   --border-color: #dcdcdc;
 }
 
@@ -20,6 +21,7 @@ body[data-theme='dark'] {
   --color-text-secondary: #30c030;
   --color-bg-primary: #292a2d;
   --color-bg-secondary: #3b3d42;
+  --color-bg-nav: #252627;
   --border-color: #4a4b50;
 }
 
@@ -36,10 +38,10 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter UI', -apple-system, BlinkMacSystemFont, 'Roboto',
-    'Segoe UI', Helvetica, Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI',
+    Helvetica, Arial, sans-serif;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.54;
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
@@ -165,8 +167,8 @@ ol ol {
 button,
 input,
 textarea {
-  font-family: 'Inter UI', -apple-system, BlinkMacSystemFont, 'Roboto',
-    'Segoe UI', Helvetica, Arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI',
+    Helvetica, Arial, sans-serif;
 }
 
 hr {
