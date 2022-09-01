@@ -7,6 +7,7 @@ import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import remarkMath from 'remark-math'
 import markdown from 'remark-parse'
+import remarkPrism from 'remark-prism'
 import rehypeKatex from 'rehype-katex'
 
 import siteConfig from '../../config'
@@ -35,7 +36,7 @@ export async function getStaticProps({ params: { slug } }) {
 
   const mdxSource = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [markdown, remarkMath],
+      remarkPlugins: [markdown, remarkMath, remarkPrism],
       rehypePlugins: [rehypeKatex],
     },
     scope: data,
