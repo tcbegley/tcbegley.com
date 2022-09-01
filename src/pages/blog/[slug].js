@@ -42,6 +42,10 @@ export async function getStaticProps({ params: { slug } }) {
     scope: data,
   })
 
+  data.date = new Date(data.date).toLocaleString('en-gb', {
+    dateStyle: 'long',
+  })
+
   return { props: { slug, source: mdxSource, meta: data } }
 }
 
