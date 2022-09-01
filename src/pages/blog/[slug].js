@@ -1,13 +1,22 @@
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
+import { MDXRemote } from 'next-mdx-remote'
+import { serialize } from 'next-mdx-remote/serialize'
+import remarkMath from 'remark-math'
+import markdown from 'remark-parse'
+import rehypeKatex from 'rehype-katex'
 
 import siteConfig from '../../config'
 import Layout from '../../components/layout'
 
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
+const components = {
+  BilliardsContainer: dynamic(() =>
+    import('../../components/blog/billiards-container'),
+  ),
+}
 
 const pagesDirectory = path.join(process.cwd(), 'src', 'content', 'blog')
 
@@ -21,14 +30,17 @@ export async function getStaticProps({ params: { slug } }) {
   const fullPath = path.join(pagesDirectory, fileName)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
-  const matterResult = matter(fileContents)
+  const { content, data } = matter(fileContents)
 
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content)
+  const mdxSource = await serialize(content, {
+    mdxOptions: {
+      remarkPlugins: [markdown, remarkMath],
+      rehypePlugins: [rehypeKatex],
+    },
+    scope: data,
+  })
 
-  const content = processedContent.toString()
-  return { props: { slug, content, meta: matterResult.data } }
+  return { props: { slug, source: mdxSource, meta: data } }
 }
 
 export async function getStaticPaths() {
@@ -39,7 +51,7 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export default function Page({ slug, content, meta }) {
+export default function Page({ slug, source, meta }) {
   const title = meta.title
     ? `${meta.title} :: ${siteConfig.title}`
     : siteConfig.title
@@ -60,7 +72,7 @@ export default function Page({ slug, content, meta }) {
         excerpt={meta.excerpt}
         path={`/${slug}`}
       >
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+        <MDXRemote components={components} {...source} />
       </Layout>
     </>
   )

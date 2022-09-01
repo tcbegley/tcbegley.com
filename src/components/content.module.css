@@ -57,4 +57,13 @@
 
 .postContent {
   position: relative;
+
+  & img {
+    border: 8px solid white;
+    border-radius: 8px;
+    background: white;
+    box-sizing: border-box;
+    max-width: 800px;
+    width: 100%;
+  }
 }

@@ -365,9 +365,7 @@ I ran this four times with different starting points each time. The results are
 shown below
 
 <p align="center">
-  <div class="gif-container">
-    <img src="../../images/blog/mcmc1/rw-metropolis.gif" />
-  </div>
+  <img src="../../images/blog/mcmc1/rw-metropolis.gif" />
 </p>
 
 You can see from the animation that the early samples, when the chain is still

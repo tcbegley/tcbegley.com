@@ -168,9 +168,8 @@ regression is an example.
 In the next post, we'll look at some technical preliminaries so we can start to
 understand how these models work.
 
-<!--prettier-ignore -->
-[yougov-model]: https://yougov.co.uk/topics/politics/articles-reports/2017/05/31/how-yougov-model-2017-general-election-works
+[yougov-model]:
+  https://yougov.co.uk/topics/politics/articles-reports/2017/05/31/how-yougov-model-2017-general-election-works
 [clt]: https://en.wikipedia.org/wiki/Central_limit_theorem
-
-<!--prettier-ignore -->
-[polling-error]: http://www.stat.columbia.edu/~gelman/research/published/polling-errors.pdf
+[polling-error]:
+  http://www.stat.columbia.edu/~gelman/research/published/polling-errors.pdf

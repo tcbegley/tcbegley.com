@@ -114,9 +114,7 @@ We can see what's going on by animating the samplers. The underlying contour
 plot shows the target density
 
 <p align="center">
-  <div class="gif-container">
-    <img src="../../images/blog/mcmc2/donut_mcmc.gif" />
-  </div>
+  <img src="../../images/blog/mcmc2/donut_mcmc.gif" />
 </p>
 
 Using both small and large jumps to generate proposals results in highly
@@ -312,9 +310,7 @@ integrator, while the leapfrog integrator's trajectory is very difficult to
 distinguish from the analytic solution.
 
 <p align="center">
-  <div class="gif-container">
-    <img src="../../images/blog/mcmc2/integrator.gif" />
-  </div>
+  <img src="../../images/blog/mcmc2/integrator.gif" />
 </p>
 
 The reason the leapfrog integrator performs better than the modified Euler
@@ -419,9 +415,7 @@ animation, the trajectory flashes green or red depending on whether the proposal
 is accepted or rejected respectively.
 
 <p align="center">
-  <div class="gif-container">
-    <img src="../../images/blog/mcmc2/donut_hmc.gif" />
-  </div>
+  <img src="../../images/blog/mcmc2/donut_hmc.gif" />
 </p>
 
 We see that not only is the acceptance rate very high, but also the Markov chain
@@ -440,9 +434,7 @@ Let's finish up by comparing the two Random Walk Metropolis algorithms with
 different scales from earlier to Hamiltonian Monte Carlo.
 
 <p align="center">
-  <div class="gif-container">
-    <img src="../../images/blog/mcmc2/donut_compare.gif" />
-  </div>
+  <img src="../../images/blog/mcmc2/donut_compare.gif" />
 </p>
 
 Even for this simple example the results are pretty striking. Random Walk
