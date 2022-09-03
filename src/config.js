@@ -30,6 +30,11 @@ const config = {
       path: '/maths',
     },
   ],
+  flickr: {
+    method: 'flickr.photosets.getPhotos',
+    photoset_id: '72157708283484644',
+    user_id: '149210668@N06',
+  },
 }
 
 export default config

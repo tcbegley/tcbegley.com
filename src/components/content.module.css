@@ -58,7 +58,7 @@
 .postContent {
   position: relative;
 
-  & img {
+  & p > img {
     border: 8px solid white;
     border-radius: 8px;
     background: white;

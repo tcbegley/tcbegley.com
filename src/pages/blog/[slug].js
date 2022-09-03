@@ -17,7 +17,6 @@ const components = {
   BilliardsContainer: dynamic(() =>
     import('../../components/blog/billiards-container'),
   ),
-  D3Test: dynamic(() => import('../../components/blog/d3-test')),
 }
 
 const pagesDirectory = path.join(process.cwd(), 'src', 'content', 'blog')
