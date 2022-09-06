@@ -1,32 +1,57 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React from 'react'
 
-import * as style from './navigation.module.css'
+import styles from './navigation.module.css'
+
+const Button = ({ path, label, next, onClick }) => {
+  const Tag = onClick ? React.Fragment : Link
+  return (
+    <span className={styles.button}>
+      <Tag href={path}>
+        <a
+          onClick={
+            onClick &&
+            ((e) => {
+              e.preventDefault()
+              onClick()
+            })
+          }
+        >
+          {!next && <span className={styles.iconPrev}>←</span>}
+          <span className={styles.buttonText}>{label}</span>
+          {next && <span className={styles.iconNext}>→</span>}
+        </a>
+      </Tag>
+    </span>
+  )
+}
 
 export default function Navigation({
   nextPath,
   previousPath,
   nextLabel,
   previousLabel,
+  onNextClick,
+  onPreviousClick,
 }) {
-  return previousPath || nextPath ? (
-    <div className={style.navigation}>
-      {previousPath && (
-        <span className={style.button}>
-          <Link to={previousPath}>
-            <span className={style.iconPrev}>←</span>
-            <span className={style.buttonText}>{previousLabel}</span>
-          </Link>
-        </span>
+  return previousPath || onPreviousClick || nextPath || onNextClick ? (
+    <div className={styles.navigation}>
+      {(previousPath || onPreviousClick) && (
+        <Button
+          label={previousLabel}
+          path={previousPath}
+          next={false}
+          onClick={onPreviousClick}
+        />
       )}
-      {nextPath && (
-        <span className={style.button}>
-          <Link href={nextPath}>
-            <a>
-              <span className={style.buttonText}>{nextLabel}</span>
-              <span className={style.iconNext}>→</span>
-            </a>
-          </Link>
-        </span>
+      {(nextPath || onNextClick) && (
+        <Button
+          label={nextLabel}
+          path={nextPath}
+          next={true}
+          onClick={onNextClick}
+        />
       )}
     </div>
   ) : null

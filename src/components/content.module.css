@@ -6,11 +6,7 @@
   margin: 0 auto 20px;
 
   &:not(:last-of-type) {
-    border-bottom: 1px solid var(--light-border-color);
-
-    :global(.dark-theme) & {
-      border-color: var(--dark-border-color);
-    }
+    border-bottom: 1px solid var(--border-color);
   }
 
   @media (--tablet) {

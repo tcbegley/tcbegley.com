@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import siteConfig from '../config'
+import Content from '../components/content'
 import Layout from '../components/layout'
 
 import fs from 'fs'
@@ -52,8 +53,10 @@ export default function Page({ slug, content, meta }) {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
       </Head>
-      <Layout title={meta.title} path={`/${slug}`}>
-        <div dangerouslySetInnerHTML={{ __html: content }} />
+      <Layout>
+        <Content title={meta.title} path={`/${slug}`}>
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+        </Content>
       </Layout>
     </>
   )

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 
 import Layout from '../components/layout'
+import Content from '../components/content'
 import siteConfig from '../config'
 
 export default function Custom404() {
@@ -11,8 +12,10 @@ export default function Custom404() {
         <meta name="description" content={siteConfig.description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>NOT FOUND</h1>
-      <p>You just hit a route that doesn&#39;t exist... :-(</p>
+      <Content>
+        <h1>NOT FOUND</h1>
+        <p>You just hit a route that doesn&#39;t exist... :-(</p>
+      </Content>
     </Layout>
   )
 }

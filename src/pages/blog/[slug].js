@@ -12,6 +12,7 @@ import rehypeKatex from 'rehype-katex'
 
 import siteConfig from '../../config'
 import Layout from '../../components/layout'
+import Content from '../../components/content'
 
 const components = {
   BilliardsContainer: dynamic(() =>
@@ -69,15 +70,17 @@ export default function Page({ slug, source, meta }) {
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
       </Head>
-      <Layout
-        title={meta.title}
-        author={meta.author}
-        date={meta.date}
-        tags={meta.tags}
-        excerpt={meta.excerpt}
-        path={`/${slug}`}
-      >
-        <MDXRemote components={components} {...source} />
+      <Layout>
+        <Content
+          title={meta.title}
+          author={meta.author}
+          date={meta.date}
+          tags={meta.tags}
+          excerpt={meta.excerpt}
+          path={`/${slug}`}
+        >
+          <MDXRemote components={components} {...source} />
+        </Content>
       </Layout>
     </>
   )
