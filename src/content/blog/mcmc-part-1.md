@@ -1,6 +1,6 @@
 ---
 title: 'Implementing MCMC - the Metropolis algorithm'
-path: '/blog/mcmc-part-1'
+path: '/blog/posts/mcmc-part-1'
 date: '2021-01-19 08:00:00'
 author: 'Tom'
 excerpt:

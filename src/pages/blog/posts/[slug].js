@@ -10,13 +10,13 @@ import markdown from 'remark-parse'
 import remarkPrism from 'remark-prism'
 import rehypeKatex from 'rehype-katex'
 
-import siteConfig from '../../config'
-import Layout from '../../components/layout'
-import Content from '../../components/content'
+import siteConfig from '../../../config'
+import Layout from '../../../components/layout'
+import Content from '../../../components/content'
 
 const components = {
   BilliardsContainer: dynamic(() =>
-    import('../../components/blog/billiards-container'),
+    import('../../../components/blog/billiards-container'),
   ),
 }
 

@@ -1,6 +1,6 @@
 ---
 title: 'Election Modelling - Part 2'
-path: '/blog/election-modelling-part-2'
+path: '/blog/posts/election-modelling-part-2'
 date: '2019-11-11 08:00:00'
 author: 'Tom'
 excerpt:

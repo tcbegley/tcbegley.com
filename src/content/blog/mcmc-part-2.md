@@ -1,6 +1,6 @@
 ---
 title: 'Implementing MCMC - Hamiltonian Monte Carlo'
-path: '/blog/mcmc-part-2'
+path: '/blog/posts/mcmc-part-2'
 date: '2021-01-21 08:00:00'
 author: 'Tom'
 excerpt:

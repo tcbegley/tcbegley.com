@@ -16,7 +16,7 @@ export default function Content({ children, title, author, date, tags }) {
               <div className={style.tags}>
                 {tags.map((tag) => (
                   <Link
-                    href={`/tag/${toKebabCase(tag)}`}
+                    href={`/blog/tags/${toKebabCase(tag)}`}
                     key={toKebabCase(tag)}
                   >
                     <a>

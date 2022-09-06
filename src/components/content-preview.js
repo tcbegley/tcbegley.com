@@ -24,7 +24,10 @@ export default function ContentPreview({
           {tags ? (
             <div className={styles.tags}>
               {tags.map((tag) => (
-                <Link href={`/tag/${toKebabCase(tag)}/`} key={toKebabCase(tag)}>
+                <Link
+                  href={`/blog/tags/${toKebabCase(tag)}/`}
+                  key={toKebabCase(tag)}
+                >
                   <span className={styles.tag}>#{tag}</span>
                 </Link>
               ))}
