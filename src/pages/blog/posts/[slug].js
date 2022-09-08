@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
+import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import remarkMath from 'remark-math'
@@ -13,11 +14,14 @@ import rehypeKatex from 'rehype-katex'
 import siteConfig from '../../../config'
 import Layout from '../../../components/layout'
 import Content from '../../../components/content'
+import rehypeImgSize from 'rehype-img-size'
 
 const components = {
   BilliardsContainer: dynamic(() =>
     import('../../../components/blog/billiards-container'),
   ),
+  img: (props) => <Image {...props} layout="responsive" loading="lazy" />,
+  Image,
 }
 
 const pagesDirectory = path.join(process.cwd(), 'src', 'content', 'blog')
@@ -37,7 +41,7 @@ export async function getStaticProps({ params: { slug } }) {
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [markdown, remarkMath, remarkPrism],
-      rehypePlugins: [rehypeKatex],
+      rehypePlugins: [rehypeKatex, [rehypeImgSize, { dir: 'public' }]],
     },
     scope: data,
   })

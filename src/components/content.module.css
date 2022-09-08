@@ -51,10 +51,12 @@
   color: var(--color-text-secondary);
 }
 
+.imageGallery {}
+
 .postContent {
   position: relative;
 
-  & p > img {
+  & :not(.imageGallery) img {
     border: 8px solid white;
     border-radius: 8px;
     background: white;

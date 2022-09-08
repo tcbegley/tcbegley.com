@@ -6,6 +6,7 @@ import Layout from '../components/layout'
 import PhotoGalleryItem from '../components/photo-gallery-item'
 import siteConfig from '../config'
 import callFlickr from '../lib/flickr'
+import styles from '../components/content.module.css'
 
 export async function getStaticProps() {
   const options = { api_key: process.env.FLICKR_API_KEY, ...siteConfig.flickr }
@@ -36,21 +37,23 @@ export default function Photos({ images }) {
       </Head>
       <Layout>
         <Content title="Photos">
-          <p>
-            I&apos;m a keen amateur photographer. On this page you can find a
-            few of the photos I&apos;ve taken over the years. Click on the
-            fullscreen button to see any of them in more detail.
-          </p>
-          <p>
-            All of these photos are also available on my{' '}
-            <a href="https://flickr.com/photos/149210668@N06/">Flickr</a>{' '}
-            account.
-          </p>
-          <ImageGallery
-            items={images}
-            showPlayButton={false}
-            renderItem={PhotoGalleryItem}
-          />
+          <div className={styles.imageGallery}>
+            <p>
+              I&apos;m a keen amateur photographer. On this page you can find a
+              few of the photos I&apos;ve taken over the years. Click on the
+              fullscreen button to see any of them in more detail.
+            </p>
+            <p>
+              All of these photos are also available on my{' '}
+              <a href="https://flickr.com/photos/149210668@N06/">Flickr</a>{' '}
+              account.
+            </p>
+            <ImageGallery
+              items={images}
+              showPlayButton={false}
+              renderItem={PhotoGalleryItem}
+            />
+          </div>
         </Content>
       </Layout>
     </>
