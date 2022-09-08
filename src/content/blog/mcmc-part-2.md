@@ -113,9 +113,7 @@ samples1 = metropolis(target, lambda: np.array([3, 0]), NormalProposal(1))
 We can see what's going on by animating the samplers. The underlying contour
 plot shows the target density
 
-<p align="center">
-  <img src="../../images/blog/mcmc2/donut_mcmc.gif" />
-</p>
+![MCMC animation on donut shaped target](/images/blog/mcmc2/donut_mcmc.gif)
 
 Using both small and large jumps to generate proposals results in highly
 correlated samples. In the former case, each proposal is not very different from
@@ -141,9 +139,7 @@ This is arguably the simplest high-dimensional probability distribution we might
 like to sample from. Let's look at how the distribution of distance to the
 origin in a sample changes as we increase the dimension.
 
-<p align="center">
-  <img src="../../images/blog/mcmc2/normal_sample_radius.png" />
-</p>
+![histograms of standard normal samples in increasing dimensions](/images/blog/mcmc2/normal_sample_radius.png)
 
 What we see from the histograms is that as the dimension increases, the samples
 become concentrated in an annular region further and further from the origin.
@@ -309,9 +305,7 @@ does deviate from the analytic solution at times more than the leapfrog
 integrator, while the leapfrog integrator's trajectory is very difficult to
 distinguish from the analytic solution.
 
-<p align="center">
-  <img src="../../images/blog/mcmc2/integrator.gif" />
-</p>
+![animation of three integrators](/images/blog/mcmc2/integrator.gif)
 
 The reason the leapfrog integrator performs better than the modified Euler
 method is because in addition to being volume preserving it is also
@@ -414,9 +408,7 @@ and use the end point as a proposal in the Metropolis algorithm. In the
 animation, the trajectory flashes green or red depending on whether the proposal
 is accepted or rejected respectively.
 
-<p align="center">
-  <img src="../../images/blog/mcmc2/donut_hmc.gif" />
-</p>
+![HMC on donut shaped target](/images/blog/mcmc2/donut_hmc.gif)
 
 We see that not only is the acceptance rate very high, but also the Markov chain
 quickly finds its way around the donut and covers parameter space quite evenly.
@@ -433,9 +425,7 @@ is a much better measure of the quality of our sample than the raw sample size.
 Let's finish up by comparing the two Random Walk Metropolis algorithms with
 different scales from earlier to Hamiltonian Monte Carlo.
 
-<p align="center">
-  <img src="../../images/blog/mcmc2/donut_compare.gif" />
-</p>
+![animated comparison of algorithms](/images/blog/mcmc2/donut_compare.gif)
 
 Even for this simple example the results are pretty striking. Random Walk
 Metropolis with small jumps makes small and limited progress around the donut in
@@ -482,7 +472,7 @@ Monte Carlo that is able to choose appropriate $\varepsilon$ and $L$
 automatically, making it much easier to apply in practice.
 
 Full code for all of the plots and animations in this post is available
-[here](https://gist.github.com/tcbegley/a209773e77ae90e25ba570aab88afad5).
+[in this Gist](https://gist.github.com/tcbegley/a209773e77ae90e25ba570aab88afad5).
 
 ## Appendix
 

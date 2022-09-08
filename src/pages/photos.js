@@ -6,7 +6,7 @@ import Layout from '../components/layout'
 import PhotoGalleryItem from '../components/photo-gallery-item'
 import siteConfig from '../config'
 import callFlickr from '../lib/flickr'
-import styles from '../components/content.module.css'
+import styles from './photos.module.css'
 
 export async function getStaticProps() {
   const options = { api_key: process.env.FLICKR_API_KEY, ...siteConfig.flickr }

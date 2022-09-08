@@ -364,9 +364,7 @@ samples = metropolis(
 I ran this four times with different starting points each time. The results are
 shown below
 
-<p align="center">
-  <img src="../../images/blog/mcmc1/rw-metropolis.gif" />
-</p>
+![random walk metropolis animation](/images/blog/mcmc1/rw-metropolis.gif)
 
 You can see from the animation that the early samples, when the chain is still
 finding its way to the high density region of the target distribution are not
@@ -404,9 +402,7 @@ labels = np.random.binomial(1, p=sigmoid(data @ beta + alpha))
 
 This gives us ten data points with five belonging to each class
 
-<p align="center">
-  <img src="../../images/blog/mcmc1/data.png" />
-</p>
+![scatter plot of 2D data](/images/blog/mcmc1/data.png)
 
 Let's see if we can separate them with a logistic regression model. A standard
 setup would be something like the following
@@ -500,9 +496,7 @@ and then averaging the predictions. The result of doing this in our case
 (discarding the first 10,000 samples to minimise bias from the initialisation)
 is shown below.
 
-<p align="center">
-  <img src="../../images/blog/mcmc1/logistic-heatmap.png" />
-</p>
+![logistic regression prediction heatmap](/images/blog/mcmc1/logistic-heatmap.png)
 
 There we have it, a simple logistic regression solved by MCMC. From the heatmap
 you can see there is some uncertainty in the decision boundary, a consequence of

@@ -117,16 +117,12 @@ section, but first let's look at how the posterior changes as we observe coin
 flips. To begin with, before we observe any data, the posterior is just the
 prior.
 
-<p align="center">
-  <img src="../../images/blog/em2/beta11.png" />
-</p>
+![beta 1 1 distribution](/images/blog/em2/beta11.png)
 
 If we observed a tails, the posterior becomes $\mathrm{Beta}(1, 2)$ which looks
 like this.
 
-<p align="center">
-  <img src="../../images/blog/em2/beta12.png" />
-</p>
+![beta 1 2 distribution](/images/blog/em2/beta12.png)
 
 We can see the posterior probability density of $\theta = 1$ immediately goes to
 $0$. This makes sense because we just observed tails, so we can rule out the
@@ -136,9 +132,7 @@ unlikely, which accounts for the decreasing slope. Let's suppose that we now
 observe two heads, the posterior becomes $\mathrm{Beta}(3, 2)$ which looks like
 this.
 
-<p align="center">
-  <img src="../../images/blog/em2/beta32.png" />
-</p>
+![beta 3 2 distribution](/images/blog/em2/beta32.png)
 
 Now that we've observed a heads, we can similarly rule out the possibility that
 $\theta = 0$, so the posterior density there also goes to zero. Furthermore,
@@ -147,9 +141,7 @@ higher values of $\theta$. Let's suppose now that we saw ten tails and twenty
 heads, so the proportion of heads is the same, but the amount of data goes up.
 Now the posterior is $\mathrm{Beta}(21, 11)$ which looks like this.
 
-<p align="center">
-  <img src="../../images/blog/em2/beta2111.png" />
-</p>
+![beta 21 11 distribution](/images/blog/em2/beta2111.png)
 
 Now the mode of the posterior distribution is closer to the proportion of heads
 that we've seen, and the variance has shrunk, i.e. we are more confident of the
@@ -168,7 +160,7 @@ likely to come up tails. To begin with after only a few coin flips the
 posteriors differ significantly, but as we observe more data they get more and
 more similar as the influence of the prior fades.
 
-<img src="../../images/blog/em2/animation.gif" width="900"/>
+![posterior evolution animation](/images/blog/em2/animation.gif)
 
 ## Inference with the posterior distribution
 

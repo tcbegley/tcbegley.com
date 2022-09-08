@@ -224,9 +224,7 @@ $\theta$. Now if we observed three heads in a row, instead of estimating
 $\theta = 1.0$, we obtain a $\mathrm{Beta}(13, 10)$ posterior on $\theta$, which
 has mean $0.565$. The full posterior looks like the below figure.
 
-<p align="center">
-  <img src="../../images/blog/em3/low-data-posterior.png" width="350"/>
-</p>
+![low data posterior](/images/blog/em3/low-data-posterior.png)
 
 Here we see the regularising effect of the prior. Our knowledge of the situation
 pulls our estimates away from the extreme solutions suggested by the small

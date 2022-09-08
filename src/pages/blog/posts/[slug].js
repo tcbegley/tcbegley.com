@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Image from 'next/image'
+import { MDXProvider } from '@mdx-js/react'
 import { MDXRemote } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import remarkMath from 'remark-math'
@@ -21,7 +22,6 @@ const components = {
     import('../../../components/blog/billiards-container'),
   ),
   img: (props) => <Image {...props} layout="responsive" loading="lazy" />,
-  Image,
 }
 
 const pagesDirectory = path.join(process.cwd(), 'src', 'content', 'blog')
@@ -83,7 +83,9 @@ export default function Page({ slug, source, meta }) {
           excerpt={meta.excerpt}
           path={`/${slug}`}
         >
-          <MDXRemote components={components} {...source} />
+          <MDXProvider components={components}>
+            <MDXRemote {...source} />
+          </MDXProvider>
         </Content>
       </Layout>
     </>

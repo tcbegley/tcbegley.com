@@ -41,7 +41,6 @@
 
 .tags {
   margin-top: 10px;
-  opacity: 0.5;
 }
 
 .tag {
@@ -51,12 +50,10 @@
   color: var(--color-text-secondary);
 }
 
-.imageGallery {}
-
 .postContent {
   position: relative;
 
-  & :not(.imageGallery) img {
+  & img {
     border: 8px solid white;
     border-radius: 8px;
     background: white;

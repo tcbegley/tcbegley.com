@@ -64,36 +64,18 @@ the electorate, each of whom have their personal preferences for the parties
 they want to vote for. We can illustrate that as follows, where colour
 represents political preference.
 
-<Image
-  src="/images/blog/em/population.png"
-  width={1600}
-  height={1600}
-  layout="responsive"
-  loading="lazy"
-/>
+![population](/images/blog/em/population.png)
 
 We select a random sample of the population, and ask them what their voting
 preference is.
 
-<Image
-  src="/images/blog/em/population-sample.png"
-  width={1600}
-  height={1600}
-  layout="responsive"
-  loading="lazy"
-/>
+![population sample](/images/blog/em/population-sample.png)
 
 We calculate the proportion of voters in the sample that intend to vote for each
 party, and use that as our estimate of the proportion of voters in the
 electorate that will vote for those parties.
 
-<Image
-  src="/images/blog/em/sample.png"
-  width={1600}
-  height={1600}
-  layout="responsive"
-  loading="lazy"
-/>
+![sample from population](/images/blog/em/sample.png)
 
 We know from the [Central Limit Theorem][clt] that the more people you sample,
 the closer the sample proportion will get to the true proportion. In fact, we
@@ -113,35 +95,17 @@ representative sample. For example, political preference is not evenly
 distributed across the electorate. Currently in the UK support for parties is
 strongly correlated with age. Perhaps that looks something like this
 
-<Image
-  src="/images/blog/em/population-skew.png"
-  width={1600}
-  height={1600}
-  layout="responsive"
-  loading="lazy"
-/>
+![skewed population](/images/blog/em/population-skew.png)
 
 If the poll is more likely to reach older people, for example if we do a
 telephone poll and older people are more likely to have a landline, then our
 sample could be biased.
 
-<Image
-  src="/images/blog/em/population-skew-sample.png"
-  width={1600}
-  height={1600}
-  layout="responsive"
-  loading="lazy"
-/>
+![sample from skewed population](/images/blog/em/population-skew-sample.png)
 
 Which would lead to biased estimates.
 
-<Image
-  src="/images/blog/em/sample-skew.png"
-  width={1600}
-  height={1600}
-  layout="responsive"
-  loading="lazy"
-/>
+![biased estimates due to skewed sample](/images/blog/em/sample-skew.png)
 
 ## Errors are not the only problem
 
