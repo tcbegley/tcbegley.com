@@ -4,7 +4,7 @@ This is the source code for my personal website. It is built with [NextJS][next-
 
 ## Development
 
-Install dependencies, and the Gatsby CLI
+Install dependencies
 
 ```sh
 npm install
