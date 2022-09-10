@@ -40,10 +40,12 @@ export default function Index() {
               </div>
               <div className={styles.imgCol}>
                 <Image
-                  src="/images/me.jpg"
+                  src="/images/tom.jpg"
                   alt="tom"
                   width={200}
                   height={200}
+                  layout="fixed"
+                  priority
                   style={{ borderRadius: 8 }}
                 />
               </div>
@@ -57,14 +59,32 @@ export default function Index() {
               machine learning, web development, and programming with Python.
             </p>
             <span className={styles.social}>
-              <a href="https://github.com/tcbegley">
-                <FontAwesomeIcon icon={faGithub} size="2x" />
+              <a href="https://github.com/tcbegley" title="GitHub">
+                <FontAwesomeIcon
+                  icon={faGithub}
+                  size="2x"
+                  aria-hidden="true"
+                  focusable="false"
+                />
+                <span className="sr-only">GitHub</span>
               </a>
-              <a href="https://linkedin.com/in/tcbegley">
-                <FontAwesomeIcon icon={faLinkedin} size="2x" />
+              <a href="https://linkedin.com/in/tcbegley" title="LinkedIn">
+                <FontAwesomeIcon
+                  icon={faLinkedin}
+                  size="2x"
+                  aria-hidden="true"
+                  focusable="false"
+                />
+                <span className="sr-only">LinkedIn</span>
               </a>
-              <a href="https://twitter.com/tcbegley">
-                <FontAwesomeIcon icon={faTwitter} size="2x" />
+              <a href="https://twitter.com/tcbegley" title="Twitter">
+                <FontAwesomeIcon
+                  icon={faTwitter}
+                  size="2x"
+                  aria-hidden="true"
+                  focusable="false"
+                />
+                <span className="sr-only">Twitter</span>
               </a>
             </span>
           </div>
