@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import siteConfig from '../../config'
@@ -40,26 +41,32 @@ export default function BlogIndex({ posts }) {
     page < posts.length / postsPerPage ? { query: { page: page + 1 } } : null
   const previousPath = page > 1 ? { query: { page: page - 1 } } : null
   return (
-    <Layout>
-      {posts
-        .slice((page - 1) * postsPerPage, page * postsPerPage)
-        .map(({ slug, title, date, author, tags, excerpt }) => (
-          <ContentPreview
-            key={slug}
-            title={title}
-            date={date}
-            path={`/blog/posts/${slug}`}
-            tags={tags}
-            author={author}
-            excerpt={excerpt}
-          />
-        ))}
-      <Navigation
-        previousPath={previousPath}
-        previousLabel="Newer posts"
-        nextPath={nextPath}
-        nextLabel="Older posts"
-      />
-    </Layout>
+    <>
+      <Head>
+        <title>{`Blog :: ${siteConfig.title}`}</title>
+        <meta name="description" content={siteConfig.description} />
+      </Head>
+      <Layout>
+        {posts
+          .slice((page - 1) * postsPerPage, page * postsPerPage)
+          .map(({ slug, title, date, author, tags, excerpt }) => (
+            <ContentPreview
+              key={slug}
+              title={title}
+              date={date}
+              path={`/blog/posts/${slug}`}
+              tags={tags}
+              author={author}
+              excerpt={excerpt}
+            />
+          ))}
+        <Navigation
+          previousPath={previousPath}
+          previousLabel="Newer posts"
+          nextPath={nextPath}
+          nextLabel="Older posts"
+        />
+      </Layout>
+    </>
   )
 }

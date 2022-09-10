@@ -89,17 +89,19 @@ export default function Menu({
 
   const subMenuToggle = (
     <>
-      <button
-        className={styles.subMenuTrigger}
-        onClick={onToggleSubMenu}
-        type="button"
-        aria-label="Menu"
-      >
-        {menuMoreText || 'Menu'}{' '}
-        <span className={styles.menuArrow}>
-          <FontAwesomeIcon icon={faAngleDown} size="xs" />
-        </span>
-      </button>
+      <li>
+        <button
+          className={styles.subMenuTrigger}
+          onClick={onToggleSubMenu}
+          type="button"
+          aria-label="Menu"
+        >
+          {menuMoreText || 'Menu'}{' '}
+          <span className={styles.menuArrow}>
+            <FontAwesomeIcon icon={faAngleDown} size="xs" />
+          </span>
+        </button>
+      </li>
       {subMenuVisible ? subMenu : null}
     </>
   )

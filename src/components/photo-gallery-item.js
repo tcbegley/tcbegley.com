@@ -1,4 +1,3 @@
-import { memo } from 'react'
 import Image from 'next/image'
 
 function PhotoGalleryItem({
@@ -11,7 +10,6 @@ function PhotoGalleryItem({
   originalHeight,
   sizes,
   srcSet,
-  thumbnail,
 }) {
   return (
     <>
@@ -26,7 +24,7 @@ function PhotoGalleryItem({
           onLoad={onImageLoad}
           onError={onImageError}
           placeholder="blur"
-          blurDataURL={thumbnail}
+          layout="responsive"
         />
 
         {description && (

@@ -10,10 +10,10 @@ Previously I was R&D lead at [Faculty][faculty]. A couple of projects I worked
 on in my time there include:
 
 - A tool for detecting terrorist propaganda online using machine learning
-  algorithms, built for the UK Home Office. Read about it
-  [here][blackflag-article].
+  algorithms, built for the UK Home Office. This project was covered by
+  [BBC News][blackflag-article] among others.
 - A media monitoring application for Amnesty International. Read about it
-  [here][amnesty-article] or [watch me talk about it][demo-day].
+  [in this article][amnesty-article] or [watch me talk about it][demo-day].
 
 Previously I studied for a PhD in mathematics at the University of Cambridge
 under the joint supervision of [Prof. Neshan Wickramasekera][neshan-homepage]
@@ -28,7 +28,7 @@ see some of the things I work on on my [code page](/code).
 [blackflag-article]: https://www.bbc.co.uk/news/technology-43037899
 
 <!-- prettier-ignore -->
-[amnesty-article]: https://www.cio.co.uk/it-strategy/amnesty-international-cio-adopts-data-science-track-press-data-3671814/
+[amnesty-article]: https://www.cio.com/article/198145/amnesty-international-cio-john-gillespie-using-data-science-to-track-press-and-media-monitoring.html
 [demo-day]: https://www.youtube.com/watch?v=8aZdJwY79OE
 [neshan-homepage]: https://www.dpmms.cam.ac.uk/person/ngw24
 [felix-homepage]: https://felixschulze.eu/
