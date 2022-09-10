@@ -1,5 +1,7 @@
 import * as d3 from 'd3'
 
+import styles from './billiards-visualisation.module.css'
+
 class BilliardsVisualisation {
   props
   canvas
@@ -8,16 +10,18 @@ class BilliardsVisualisation {
 
   constructor(containerEl, props) {
     this.props = props
-    this.canvas = d3
-      .select(containerEl)
-      .append('canvas')
-      .style('background-color', '#0fc133')
-      .style('border', '2px solid black')
-      .style('border-radius', '5px')
-      .attr('width', props.width)
-      .attr('height', props.height)
+    this.canvas = d3.select(`.${styles.canvas}`).node()
+      ? d3.select(`.${styles.canvas}`)
+      : d3
+          .select(containerEl)
+          .append('canvas')
+          .attr('class', styles.canvas)
+          .attr('width', props.width)
+          .attr('height', props.height)
     this.ctx = this.canvas.node().getContext('2d')
     this.white = null
+
+    console.log(styles.canvas)
 
     this.setWhite = this.setWhite.bind(this)
     this.drawWhiteLine = this.drawWhiteLine.bind(this)

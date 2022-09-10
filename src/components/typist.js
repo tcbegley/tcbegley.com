@@ -1,19 +1,20 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const Typist = ({ className, text, delay }) => {
-  const index = useRef(0)
+export default function Typist({ className, text, delay }) {
   const [typed, setTyped] = useState('')
 
   useEffect(() => {
-    let timeoutId = null
-    if (index.current < text.length) {
-      timeoutId = setTimeout(() => {
-        setTyped((value) => value + text.charAt(index.current))
-        index.current += 1
-      }, delay)
+    setTyped('')
+
+    const addChar = (index) => {
+      if (index < text.length) {
+        setTyped((value) => value + text.charAt(index))
+        setTimeout(() => addChar(index + 1), delay)
+      }
     }
+    const timeoutId = setTimeout(() => addChar(0), delay)
     return () => clearTimeout(timeoutId)
-  }, [text, typed, delay])
+  }, [text, delay])
 
   return <span className={className}>{typed}</span>
 }
@@ -21,5 +22,3 @@ const Typist = ({ className, text, delay }) => {
 Typist.defaultProps = {
   delay: 70,
 }
-
-export default Typist

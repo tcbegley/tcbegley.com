@@ -1,19 +1,22 @@
 .mobileMenuContainer {
   display: none;
+}
 
-  @media (--phone) {
+@media (max-width: 684px) {
+  .mobileMenuContainer {
     display: flex;
   }
 }
 
 .desktopMenuContainer {
   display: block;
+}
 
-  @media (--phone) {
+@media (max-width: 684px) {
+  .desktopMenuContainer {
     display: none;
   }
 }
-
 .menu {
   display: flex;
   flex: 0 0 auto;
@@ -60,7 +63,7 @@
   right: 0;
   flex-direction: column;
   align-items: flex-start;
-  background: #fafafa;
+  background: var(--color-bg-nav);
   margin: 0;
   padding: 0;
   text-align: left;
@@ -68,10 +71,6 @@
   border-radius: 5px;
   overflow: hidden;
   z-index: 99;
-
-  :global(.dark-theme) & {
-    background: #252627;
-  }
 
   li {
     margin: 0;
@@ -112,7 +111,6 @@
   font-weight: inherit;
   border: none;
   box-shadow: none;
-  margin: 0 12px;
   padding: 0;
   cursor: pointer;
   outline: none;
@@ -122,7 +120,7 @@
 .subMenu {
   position: absolute;
   max-width: 300px;
-  background: #fafafa;
+  background: var(--color-bg-nav);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   margin: 0;
   padding: 5px;
@@ -132,10 +130,6 @@
   right: 70px;
   overflow: hidden;
   z-index: 99;
-
-  :global(.dark-theme) & {
-    background: var(--dark-background-secondary);
-  }
 
   li {
     text-align: left;
@@ -147,13 +141,9 @@
     }
 
     &:hover {
-      background: rgba(0, 0, 0, 0.05);
+      background: rgba(0, 0, 0, 0.1);
       border-radius: 3px;
       cursor: pointer;
-
-      :global(.dark-theme) & {
-        background: rgba(0, 0, 0, 0.15);
-      }
     }
   }
 }
@@ -169,7 +159,7 @@
 
 .menuArrow {
   display: inline-block;
-  font-family: 'Inter UI';
+  font-family: 'Inter';
   margin-left: 5px;
-  transform: rotate(90deg);
+  /* transform: rotate(90deg); */
 }

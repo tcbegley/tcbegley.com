@@ -1,54 +1,61 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Gallery from 'react-grid-gallery'
+import Head from 'next/head'
+import ImageGallery from 'react-image-gallery'
+import Content from '../components/content'
 
 import Layout from '../components/layout'
-import Seo from '../components/seo'
+import PhotoGalleryItem from '../components/photo-gallery-item'
+import siteConfig from '../config'
+import callFlickr from '../lib/flickr'
+import styles from './photos.module.css'
 
-const Photos = ({ data }) => {
-  const images = data.allFlickrPhoto.nodes.map((node) => ({
-    src: node.url_l,
-    thumbnail: node.url_s,
-    thumbnailWidth: node.width_s,
-    thumbnailHeight: node.height_s,
-    caption: node.description,
-  }))
+export async function getStaticProps() {
+  const options = { api_key: process.env.FLICKR_API_KEY, ...siteConfig.flickr }
+  const images = await callFlickr(options)
+
+  return {
+    props: {
+      images:
+        images &&
+        images.map((photo) => ({
+          thumbnail: photo.url_s,
+          original: photo.url_o,
+          description: photo.description._content,
+          originalWidth: photo.width_o,
+          originalHeight: photo.height_o,
+        })),
+    },
+  }
+}
+
+export default function Photos({ images }) {
   return (
     <>
-      <Seo title={'Photos'} />
-      <Layout title="Photos">
-        <p>
-          I'm a keen amateur photographer. On this page you can find a few of
-          the photos I've taken over the years. Click on any of them to see a
-          higher resolution version.
-        </p>
-        <p>
-          All of these photos are also available on my{' '}
-          <a href="https://flickr.com/photos/149210668@N06/">Flickr</a> account.
-        </p>
-        <Gallery
-          id="photo-gallery"
-          enableImageSelection={false}
-          images={images}
-        />
+      <Head>
+        <title>{`Photos :: ${siteConfig.title}`}</title>
+        <meta name="description" content={siteConfig.description} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <Layout>
+        <Content title="Photos">
+          <div className={styles.imageGallery}>
+            <p>
+              I&apos;m a keen amateur photographer. On this page you can find a
+              few of the photos I&apos;ve taken over the years. Click on the
+              fullscreen button to see any of them in more detail.
+            </p>
+            <p>
+              All of these photos are also available on my{' '}
+              <a href="https://flickr.com/photos/149210668@N06/">Flickr</a>{' '}
+              account.
+            </p>
+            <ImageGallery
+              items={images}
+              showPlayButton={false}
+              renderItem={PhotoGalleryItem}
+            />
+          </div>
+        </Content>
       </Layout>
     </>
   )
 }
-
-export const query = graphql`
-  query {
-    allFlickrPhoto {
-      nodes {
-        id
-        width_s
-        height_s
-        url_s
-        url_l
-        description
-      }
-    }
-  }
-`
-
-export default Photos

@@ -1,0 +1,7 @@
+div.imageGallery {
+  & img {
+    border: none;
+    border-radius: 0;
+    background: none;
+  }
+}

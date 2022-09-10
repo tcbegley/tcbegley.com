@@ -9,7 +9,7 @@ geometric analysis, an area of maths that brings together ideas from
 differential equations, geometry and measure theory. You can find some notes,
 papers and my thesis below after the descriptions of what I worked on.
 
-### For the mathematicians
+## For the mathematicians
 
 My work was focussed on geometric variational problems, formulated in the
 languages of geometric measure theory and PDEs. In particular I was interested
@@ -22,7 +22,7 @@ regularity of stationary varifolds (these are measure theoretic notions of
 minimal submanifolds, and so are critical for area), and in particular worked on
 trying to understand boundary behaviour, and regularity up to the boundary.
 
-### For the civilians
+## For the civilians
 
 I worked in an area of mathematics called geometric analysis. Broadly speaking,
 what this means is that I worked on problems in geometry (the study of space and
@@ -39,18 +39,18 @@ lead to development of techniques that will generalise to the wider class of
 equations where perhaps there is no obvious associated geometric picture or
 intuition.
 
-### Publications
+## Publications
 
 "On short time existence of Lagrangian mean curvature flow" joint with Kim
-Moore. Math. Ann. (2017) 367:1473–1515. Available
-[here](http://link.springer.com/article/10.1007/s00208-016-1420-3).
+Moore. Math. Ann. (2017) 367:1473–1515.
+[Full paper](http://link.springer.com/article/10.1007/s00208-016-1420-3).
 
-### Thesis
+## Thesis
 
 "A regularity theorem for stationary varifolds, and an existence theorem for
-mean curvature flow". Click [here](/resources/thesis.pdf) to download.
+mean curvature flow". [Full PDF](/resources/thesis.pdf).
 
-### Notes
+## Notes
 
 ["Introduction to Lagrangian mean curvature flow"](/resources/notes/intro_to_lmcf.pdf).
 Notes based on a reading seminar given by Jason Lotay at UCL.

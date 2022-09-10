@@ -1,7 +1,11 @@
-.read-more {
+.readMore {
   display: inline-block;
   text-decoration: none;
   font-weight: bold;
   margin: 20px 0;
   font-size: 1rem;
+}
+
+.preview {
+  margin: 0 auto 20px;
 }

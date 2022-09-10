@@ -6,11 +6,7 @@
   margin: 0 auto 20px;
 
   &:not(:last-of-type) {
-    border-bottom: 1px solid var(--light-border-color);
-
-    :global(.dark-theme) & {
-      border-color: var(--dark-border-color);
-    }
+    border-bottom: 1px solid var(--border-color);
   }
 
   @media (--tablet) {
@@ -45,20 +41,24 @@
 
 .tags {
   margin-top: 10px;
-  opacity: 0.5;
 }
 
 .tag {
   display: inline-block;
   margin-right: 10px;
   font-weight: 800;
-  color: var(--light-color-secondary);
-
-  :global(.dark-theme) & {
-    color: var(--dark-color-secondary);
-  }
+  color: var(--color-text-secondary);
 }
 
 .postContent {
   position: relative;
+
+  & img {
+    border: 8px solid white;
+    border-radius: 8px;
+    background: white;
+    box-sizing: border-box;
+    max-width: 800px;
+    width: 100%;
+  }
 }

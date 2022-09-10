@@ -1,36 +1,32 @@
+import Link from 'next/link'
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
 
-import * as style from './navigation.module.css'
+import styles from './navigation.module.css'
 
-const Navigation = ({ nextPath, previousPath, nextLabel, previousLabel }) =>
-  previousPath || nextPath ? (
-    <div className={style.navigation}>
+const Button = ({ path, label, next }) => (
+  <span className={styles.button}>
+    <Link href={path}>
+      <a>
+        {!next && <span className={styles.iconPrev}>←</span>}
+        <span className={styles.buttonText}>{label}</span>
+        {next && <span className={styles.iconNext}>→</span>}
+      </a>
+    </Link>
+  </span>
+)
+
+export default function Navigation({
+  nextPath,
+  previousPath,
+  nextLabel,
+  previousLabel,
+}) {
+  return previousPath || nextPath ? (
+    <div className={styles.navigation}>
       {previousPath && (
-        <span className={style.button}>
-          <Link to={previousPath}>
-            <span className={style.iconPrev}>←</span>
-            <span className={style.buttonText}>{previousLabel}</span>
-          </Link>
-        </span>
+        <Button label={previousLabel} path={previousPath} next={false} />
       )}
-      {nextPath && (
-        <span className={style.button}>
-          <Link to={nextPath}>
-            <span className={style.buttonText}>{nextLabel}</span>
-            <span className={style.iconNext}>→</span>
-          </Link>
-        </span>
-      )}
+      {nextPath && <Button label={nextLabel} path={nextPath} next={true} />}
     </div>
   ) : null
-
-Navigation.propTypes = {
-  nextPath: PropTypes.string,
-  previousPath: PropTypes.string,
-  nextLabel: PropTypes.string,
-  previousLabel: PropTypes.string,
 }
-
-export default Navigation

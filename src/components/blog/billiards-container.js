@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import BilliardsVisualisation from './billiards-visualisation'
 import * as styles from './billiards-container.module.css'
