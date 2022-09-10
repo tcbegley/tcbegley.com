@@ -10,10 +10,10 @@ Previously I was R&D lead at [Faculty][faculty]. A couple of projects I worked
 on in my time there include:
 
 - A tool for detecting terrorist propaganda online using machine learning
-  algorithms, built for the UK Home Office. This project was covered by
-  [BBC News][blackflag-article] among others.
-- A media monitoring application for Amnesty International. Read about it
-  [in this article][amnesty-article] or [watch me talk about it][demo-day].
+  algorithms, built for the UK Home Office. This project was covered by [BBC
+  News][blackflag-article] among others.
+- A media monitoring application for Amnesty International. Read about it [in
+  this article][amnesty-article] or [watch me talk about it][demo-day].
 
 Previously I studied for a PhD in mathematics at the University of Cambridge
 under the joint supervision of [Prof. Neshan Wickramasekera][neshan-homepage]

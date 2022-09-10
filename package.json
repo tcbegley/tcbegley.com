@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write src/**/*.js src/**/*.{md,mdx}"
+    "format": "prettier --write src/**/*.js src/**/*.{md,mdx} next.config.js public/**/*.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
