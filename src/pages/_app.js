@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
       <Script
         async
         data-goatcounter="https://tcbegley.goatcounter.com/count"
-        src="//gc.zgo.at/count.js"
+        src="/scripts/count.js"
         strategy="afterInteractive"
       />
     </>
