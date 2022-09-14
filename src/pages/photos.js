@@ -1,11 +1,17 @@
+import { useMemo, useState } from 'react'
 import Head from 'next/head'
-import ImageGallery from 'react-image-gallery'
-import Content from '../components/content'
+import Image from 'next/image'
+import { Gallery } from 'react-grid-gallery'
+import Lightbox from 'yet-another-react-lightbox'
+import Captions from 'yet-another-react-lightbox/plugins/captions'
 
+import Content from '../components/content'
 import Layout from '../components/layout'
-import PhotoGalleryItem from '../components/photo-gallery-item'
 import siteConfig from '../config'
 import callFlickr from '../lib/flickr'
+
+import 'yet-another-react-lightbox/styles.css'
+import 'yet-another-react-lightbox/plugins/captions.css'
 import styles from './photos.module.css'
 
 export async function getStaticProps() {
@@ -17,17 +23,78 @@ export async function getStaticProps() {
       images:
         images &&
         images.map((photo) => ({
-          thumbnail: photo.url_s,
-          original: photo.url_o,
-          description: photo.description._content,
-          originalWidth: photo.width_o,
-          originalHeight: photo.height_o,
+          src: photo.url_m,
+          srcBlur: photo.url_t,
+          width: photo.width_m,
+          height: photo.height_m,
+          original: {
+            description: photo.description._content,
+            src: photo.url_o,
+            width: photo.width_o,
+            height: photo.height_o,
+          },
         })),
     },
   }
 }
 
+function GalleryImage({
+  imageProps: {
+    style: { width, height, maxWidth, ...style },
+    ...imageProps
+  },
+  item: { srcBlur },
+}) {
+  return (
+    <Image
+      {...imageProps}
+      style={style}
+      layout="fill"
+      objectFit="cover"
+      loading="lazy"
+      placeholder="blur"
+      blurDataURL={srcBlur}
+    />
+  )
+}
+
+function Slide(image, offset, rect) {
+  const width = Math.round(
+    Math.min(rect.width, (rect.height / image.height) * image.width),
+  )
+  const height = Math.round(
+    Math.min(rect.height, (rect.width / image.width) * image.height),
+  )
+
+  return (
+    <div style={{ position: 'relative', width, height }}>
+      <Image
+        src={image}
+        blurDataURL={image.srcBlur}
+        layout="fill"
+        loading="eager"
+        placeholder="blur"
+        objectFit="contain"
+        alt={'alt' in image ? image.alt : ''}
+        sizes={
+          typeof window !== 'undefined'
+            ? `${Math.ceil((width / window.innerWidth) * 100)}vw`
+            : `${width}px`
+        }
+      />
+    </div>
+  )
+}
+
 export default function Photos({ images }) {
+  const [index, setIndex] = useState(-1)
+  const slides = useMemo(
+    () => images.map((image) => ({ ...image.original, srcBlur: image.src })),
+    [images],
+  )
+
+  const handleClick = (index, item) => setIndex(index)
+
   return (
     <>
       <Head>
@@ -48,10 +115,19 @@ export default function Photos({ images }) {
               <a href="https://flickr.com/photos/149210668@N06/">Flickr</a>{' '}
               account.
             </p>
-            <ImageGallery
-              items={images}
-              showPlayButton={false}
-              renderItem={PhotoGalleryItem}
+            <Gallery
+              images={images}
+              thumbnailImageComponent={GalleryImage}
+              onClick={handleClick}
+              enableImageSelection={false}
+            />
+            <Lightbox
+              slides={slides}
+              open={index >= 0}
+              index={index}
+              close={() => setIndex(-1)}
+              plugins={[Captions]}
+              render={{ slide: Slide }}
             />
           </div>
         </Content>
