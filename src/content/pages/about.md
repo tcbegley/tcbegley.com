@@ -4,9 +4,14 @@ date: '2020-01-03'
 author: 'Tom'
 ---
 
-I am currently a Machine Learning Engineer at [Meta][meta].
+I currently work in the Advanced Analytics team at [Cerberus Technology
+Solutions][cts].
 
-Previously I was R&D lead at [Faculty][faculty]. A couple of projects I worked
+Previously I was a Machine Learning Engineer at [Meta][meta]. During my time
+there I worked on [tensordict][tensordict] and [TorchRL][torchrl] among other
+things.
+
+Before that I was R&D Lead at [Faculty][faculty]. A couple of projects I worked
 on in my time there include:
 
 - A tool for detecting terrorist propaganda online using machine learning
@@ -15,15 +20,19 @@ on in my time there include:
 - A media monitoring application for Amnesty International. Read about it [in
   this article][amnesty-article] or [watch me talk about it][demo-day].
 
-Previously I studied for a PhD in mathematics at the University of Cambridge
-under the joint supervision of [Prof. Neshan Wickramasekera][neshan-homepage]
-and [Prof. Felix Schulze][felix-homepage]. You can read more about what I worked
-on on my [maths page](/maths).
+In a previous life I obtained a PhD in mathematics at the University of
+Cambridge under the joint supervision of [Prof. Neshan
+Wickramasekera][neshan-homepage] and [Prof. Felix Schulze][felix-homepage]. You
+can read more about what I worked on on my [maths page](/maths).
 
 I like coding in my spare time and contributing to open source projects. You can
 see some of the things I work on on my [code page](/code).
 
+<!-- prettier-ignore -->
+[cts]: https://www.cerberus.com/operating-capabilities/cerberus-technology-solutions/
 [meta]: https://about.facebook.com/
+[tensordict]: https://github.com/pytorch/tensordict
+[torchrl]: https://github.com/pytorch/rl
 [faculty]: https://faculty.ai
 [blackflag-article]: https://www.bbc.co.uk/news/technology-43037899
 
