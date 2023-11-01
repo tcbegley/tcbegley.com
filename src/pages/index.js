@@ -34,8 +34,11 @@ export default function Index() {
                 <h1 className={styles.heading}>Hello, I&#39;m Tom.</h1>
                 <p className={styles.summary}>
                   I am a software engineer, data scientist, and mathematician.
-                  I&#39;m currently a Machine Learning engineer at{' '}
-                  <a href="https://about.facebook.com/">Meta</a>.
+                  I&#39;m currently working at{' '}
+                  <a href="https://www.cerberus.com/operating-capabilities/cerberus-technology-solutions/">
+                    CTS
+                  </a>{' '}
+                  in the advanced analytics team.
                 </p>
               </div>
               <div className={styles.imgCol}>
@@ -47,6 +50,8 @@ export default function Index() {
                   layout="fixed"
                   priority
                   style={{ borderRadius: 8 }}
+                  placeholder='blur'
+                  blurDataURL='/images/tom.jpg'
                 />
               </div>
             </div>
