@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer>
       <span className={footer}>
-        © Tom Begley 2022 | Built with{' '}
+        © Tom Begley 2023 | Built with{' '}
         <a href="https://www.nextjs.org">Next.js</a>
       </span>
     </footer>
