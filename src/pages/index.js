@@ -50,8 +50,8 @@ export default function Index() {
                   layout="fixed"
                   priority
                   style={{ borderRadius: 8 }}
-                  placeholder='blur'
-                  blurDataURL='/images/tom.jpg'
+                  placeholder="blur"
+                  blurDataURL="/images/tom.jpg"
                 />
               </div>
             </div>
