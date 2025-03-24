@@ -1,11 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 
-import {
-  faGithub,
-  faLinkedin,
-  faTwitter,
-} from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { config } from '@fortawesome/fontawesome-svg-core'
 
@@ -81,15 +77,6 @@ export default function Index() {
                   focusable="false"
                 />
                 <span className="sr-only">LinkedIn</span>
-              </a>
-              <a href="https://twitter.com/tcbegley" title="Twitter">
-                <FontAwesomeIcon
-                  icon={faTwitter}
-                  size="2x"
-                  aria-hidden="true"
-                  focusable="false"
-                />
-                <span className="sr-only">Twitter</span>
               </a>
             </span>
           </div>
