@@ -30,11 +30,7 @@ export default function Index() {
                 <h1 className={styles.heading}>Hello, I&#39;m Tom.</h1>
                 <p className={styles.summary}>
                   I am a software engineer, data scientist, and mathematician.
-                  I&#39;m currently working at{' '}
-                  <a href="https://www.cerberus.com/operating-capabilities/cerberus-technology-solutions/">
-                    CTS
-                  </a>{' '}
-                  in the advanced analytics team.
+                  I&#39;m currently working at a stealth AI startup in London.
                 </p>
               </div>
               <div className={styles.imgCol}>

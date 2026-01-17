@@ -29,9 +29,9 @@ export async function getStaticProps() {
           height: photo.height_m,
           original: {
             description: photo.description._content,
-            src: photo.url_o,
-            width: photo.width_o,
-            height: photo.height_o,
+            src: photo.url_o || photo.url_l,
+            width: photo.width_o || photo.width_l,
+            height: photo.height_o || photo.height_l,
           },
         })),
     },
