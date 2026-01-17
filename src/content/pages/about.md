@@ -4,12 +4,14 @@ date: '2020-01-03'
 author: 'Tom'
 ---
 
-I currently work in the Advanced Analytics team at [Cerberus Technology
-Solutions][cts].
+I am currently working at a stealth AI startup in the life sciences space.
 
-Previously I was a Machine Learning Engineer at [Meta][meta]. During my time
-there I worked on [tensordict][tensordict] and [TorchRL][torchrl] among other
-things.
+Previously I worked in the Advanced Analytics team at [Cerberus Technology
+Solutions][cts], where I built LLM-powered workflow automation products, and statistical
+pricing models for financial assets using Bayesian hierarchical modeling.
+
+Before that I was a Machine Learning Engineer at [Meta][meta] where I mostly worked on
+open source PyTorch libraries including [tensordict][tensordict] and [TorchRL][torchrl].
 
 Before that I was R&D Lead at [Faculty][faculty]. A couple of projects I worked
 on in my time there include:
